@@ -5,10 +5,10 @@ interface StringLengthCheckerInterface {
 interface StringLengthCheckerConfigInterface {
 	(
 		domain: string,
-		errorMargin: number
+		lengthDiff: number
 	):StringLengthCheckerInterface
 }
-export const stringLengthChecker:StringLengthCheckerConfigInterface = ( domain = "", errorMargin = 1 ) => ref => {
+export const stringLengthChecker:StringLengthCheckerConfigInterface = ( domain = "", lengthDiff = 1 ) => ref => {
 	const diff = domain.length - ref.length
-	return diff <= errorMargin && diff >= -errorMargin
+	return diff <= lengthDiff && diff >= -lengthDiff
 }
