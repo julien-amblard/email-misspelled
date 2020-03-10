@@ -8,6 +8,7 @@ module.exports = {
 	testPathIgnorePatterns: [
 		'<rootDir>node_modules/',
 		'<rootDir>demo/',
-		'<rootDir>dist/'
+		'<rootDir>lib/',
+		'<rootDir>src/'
 	],
 };
