@@ -2,7 +2,7 @@ import { containsOneAt } from "containsOneAt"
 import { getDomain } from "getDomain"
 import { stringLengthChecker } from "stringLengthChecker"
 import { lettersComparison } from "lettersComparison"
-import { popularDomainList } from "populardomainList"
+import { popularDomainList } from "popularDomainList"
 
 interface EmailCheckerInterface {
 	(
