@@ -1,0 +1,101 @@
+version: 2.1
+
+defaults: &defaults
+  working_directory: ~/repo
+  docker:
+    - image: circleci/node:12.5.0
+
+jobs:
+  tests:
+    <<: *defaults
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run:
+          name: Install dependencies
+          command: yarn install --no-lockfile
+
+      - run:
+          name: Run tests
+          command: yarn circleci-test
+
+      - run:
+          name: Run build:lib
+          command: yarn build:lib
+
+      - run:
+        name: Run build:types
+        command: yarn build:types
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
+  publish:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+
+      - run:
+          name: Save package informations
+          command: |
+            echo 'export CURRENT_PACKAGE_VERSION=$(git describe --tags)' >> $BASH_ENV
+            echo 'export CURRENT_PACKAGE_NAME=$(jq ".name" ~/repo/package.json -r)' >> $BASH_ENV
+
+      - run:
+          name: Versioning package
+          command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
+
+      - run:
+          name: Print package informations
+          command: echo $CURRENT_PACKAGE_NAME@$CURRENT_PACKAGE_VERSION
+
+      - run:
+          name: Publish package
+          command: npm publish
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - .
+
+workflows:
+  version: 2
+  tests:
+    jobs:
+      - tests:
+          filters:
+            tags:
+              ignore: /.*/
+
+  test-publish:
+    jobs:
+      - tests:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
+      - publish:
+          requires:
+            - tests
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/

@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./src",
+		"strict": false,
+		"outDir": "./lib",
+		"declaration": true,
+		"emitDeclarationOnly": true,
+		"isolatedModules": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "node",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true
+	},
+	"include": ["src"],
+	"exclude": ["node_modules"]
+}
