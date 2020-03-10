@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/v/package-template.svg?style=flat-square)](https://www.npmjs.com/package/package-template)
 [![npm](https://img.shields.io/npm/l/package-template.svg?style=flat-square)](https://github.com/Julien-Amblard/package-template/blob/master/LICENSE)
   
-> description
+> check possible misspelled in email value and return a matchin knowed domain string
 
 ## [Live example](https://codepen.io/Capse/pen/gObOKGo)
 
