@@ -22,11 +22,15 @@ jobs:
 
       - run:
           name: Run tests
-          command: yarn circleci:test
+          command: yarn test:ci
 
       - run:
-          name: Run build:all
-          command: yarn build:all
+          name: Run build:lib
+          command: yarn build:lib
+
+      - run:
+          name: Run build:types
+          command: yarn build:types
 
       - save_cache:
           paths:

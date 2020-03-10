@@ -3,8 +3,8 @@
 	"description": "A autocorrect misspelled email domain",
 	"main": "lib/index.js",
 	"scripts": {
-		"circleci-test": "yarn jest --config=./tests/jest.config.js",
-		"test": "yarn jest --config=./tests/jest.config.js --verbose --watch",
+		"test:ci": "yarn jest --config=./tests/jest.config.js",
+		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watch",
 		"dev": "webpack-dev-server --mode development --config webpack.dev.js",
 		"demo": "yarn build:lib && webpack-dev-server --mode production --config webpack.prod.js",
 		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
