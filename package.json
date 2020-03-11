@@ -1,6 +1,6 @@
 {
 	"name": "email-misspelled",
-	"description": "A autocorrect misspelled email domain",
+	"description": "Check misspell email domain and return a matching domain suggestion",
 	"main": "lib/index.js",
 	"scripts": {
 		"test:ci": "yarn jest --config=./tests/jest.config.js",
