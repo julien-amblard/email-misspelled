@@ -22,11 +22,11 @@ describe("stringLengthChecker with diff of 1 : ", () => {
 		expect(checker("efghj")).toBe(true)
 	})
 	test("abcd compare efghjk to should return false", () => {
-		const checker = stringLengthChecker("abcd", max)
+		const checker = stringLengthChecker("abcd", 1)
 		expect(checker("efghjk")).toBe(false)
 	})
 	test("abcd compare efghjkl to should return false", () => {
-		const checker = stringLengthChecker("abcd", max)
+		const checker = stringLengthChecker("abcd", 1)
 		expect(checker("efghjkl")).toBe(false)
 	})
 	test("nothing compare efghjkl to should return false", () => {
