@@ -1,7 +1,7 @@
 import { containsOneAt } from "containsOneAt"
 import { getDomain } from "getDomain"
-import { stringLengthChecker } from "stringLengthChecker"
-import { lettersComparison } from "lettersComparison"
+import { stringLengthChecker, StringLengthCheckerInterface } from "stringLengthChecker"
+import { lettersComparison, LettersComparisonInterface } from "lettersComparison"
 import { popularDomainList } from "popularDomainList"
 
 interface EmailCheckerInterface {
@@ -19,13 +19,13 @@ interface EmailCheckerConfigInterface {
 
 export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiff = 2, misspelled = 2, domainList = popularDomainList } = {}) => ( email ) => {
 	if( !containsOneAt(email) || !!!domainList?.length ) return
-	const domain = getDomain(email)
+	const domain:string = getDomain(email)
 	
 	if( domainList.includes(domain) ) return
-	const sizeFilter = stringLengthChecker(domain, lengthDiff)
-	const letterFilter = lettersComparison(domain, misspelled)
+	const sizeFilter:StringLengthCheckerInterface = stringLengthChecker(domain, lengthDiff)
+	const letterFilter:LettersComparisonInterface = lettersComparison(domain, misspelled)
 
-	const remainsDomains = domainList.filter(sizeFilter).filter(letterFilter)
+	const remainsDomains:string[] = domainList.filter(sizeFilter).filter(letterFilter)
 
 	return remainsDomains[0]
 }

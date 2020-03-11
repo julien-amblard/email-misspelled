@@ -1,5 +1,5 @@
 
-interface StringLengthCheckerInterface {
+export interface StringLengthCheckerInterface {
 	( ref: string ):boolean
 }
 interface StringLengthCheckerConfigInterface {
