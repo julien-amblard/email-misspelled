@@ -12,7 +12,7 @@
 		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
 		"build:lib": "webpack --config webpack.config.js",
 		"build:types": "tsc",
-		"prepublishOnly": "yarn test && build:all"
+		"prepublishOnly": "yarn test:ci && build:all"
 	},
 	"files": [
 		"/lib"

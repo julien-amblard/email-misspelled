@@ -7,6 +7,7 @@
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/Julien-Amblard/email-misspelled/blob/master/LICENSE)
   
 > check possible misspelled in email value and return a matching domain string
+> thanks to [this](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
 
 <!-- ## [Live example](https://codepen.io/Capse/pen/gObOKGo) -->
 
