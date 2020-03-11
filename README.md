@@ -43,7 +43,7 @@ emailChecker("user@otmail.com") // hotmail.com
 ### lengthDiffMax <a id="lengthDiffMax"></a>  
 
 | Type | Default | Description |
-|:----|:----|:----|:----|
+|:----|:----|:----|
 | `lengthDiffMax` | `2` | max length difference between two string |
 
 ```js
@@ -64,7 +64,7 @@ emailChecker1("user@tmail.com") // hotmail.com
 ### maxMisspelled <a id="maxMisspelled"></a>  
 
 | Type | Default | Description |
-|:----|:----|:----|:----|
+|:----|:----|:----|
 | `maxMisspelled` | `2` | max possible misspelled |
 
 ```js
@@ -85,7 +85,7 @@ emailChecker1("user@hotmia.com") // hotmail.com
 ### domainList <a id="domainList"></a>  
 
 | Type | Default | Description |
-|:----|:----|:----|:----|
+|:----|:----|:----|
 | `domainList` | [Domain list](#domainListDefault) | max possible misspelled |
 
 ```js
