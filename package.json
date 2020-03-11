@@ -7,8 +7,10 @@
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
+
 		"dev": "webpack-dev-server --mode development --config webpack.dev.js",
 		"demo": "yarn build:lib && webpack-dev-server --mode production --config webpack.prod.js",
+
 		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
 		"build:lib": "webpack --config webpack.config.js",
 		"build:types": "tsc",
@@ -48,6 +50,7 @@
 		"@babel/polyfill": "^7.7.0",
 		"@babel/preset-env": "^7.7.4",
 		"@babel/preset-typescript": "^7.8.3",
+		"@types/webpack": "^4.41.7",
 		"babel-jest": "^24.9.0",
 		"babel-loader": "^8.0.6",
 		"codecov": "^3.6.5",
@@ -61,8 +64,5 @@
 		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.10",
 		"webpack-dev-server": "^3.9.0"
-	},
-	"dependencies": {
-		"@types/webpack": "^4.41.7"
 	}
 }
