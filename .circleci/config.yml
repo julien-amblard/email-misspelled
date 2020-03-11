@@ -32,6 +32,10 @@ jobs:
           name: Run build:types
           command: yarn build:types
 
+      - run:
+          name: Report coverage
+          command: npm run test:coverage:report
+
       - save_cache:
           paths:
             - node_modules
