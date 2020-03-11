@@ -1,4 +1,4 @@
-import { emailChecker } from "../../src"
+import emailChecker from "../../src"
 const checker = emailChecker()
 
 console.log( checker("zefzefzef@outloook.com") )

@@ -8,7 +8,7 @@ interface LettersComparisonConfigInterface {
 	): LettersComparisonInterface
 }
 //https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance
-export const lettersComparison:LettersComparisonConfigInterface = ( value = "", misspelledMax = 1 ) => ( ref ) => {
+export const lettersComparison:LettersComparisonConfigInterface = ( value = "", misspelledMax = 1 ) => ( ref = "" ) => {
 	const distanceMatrix = Array(value.length + 1).fill(null).map(() => Array(ref.length + 1).fill(null))
 
 	for( let i = 0; i <= ref.length; i+=1 ) distanceMatrix[0][i] = i

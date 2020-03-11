@@ -11,8 +11,11 @@ interface EmailCheckerInterface {
 }
 interface EmailCheckerConfigInterface {
 	(config: {
+		/** Max length different between strings; Default: 2 */
 		lengthDiffMax?: number
+		/** Max misspelled error autorise; Default: 2 */
 		maxMisspelled?: number
+		/** List of email domain to check */
 		domainList?: string[]
 	}):EmailCheckerInterface
 }
@@ -29,3 +32,4 @@ export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, ma
 
 	return remainsDomains[0]
 }
+export default emailChecker

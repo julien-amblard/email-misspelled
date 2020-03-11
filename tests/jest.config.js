@@ -5,6 +5,9 @@ module.exports = {
 	moduleNameMapper: {
 		"\\.(css|less|scss|sss|styl)$": "<rootDir>node_modules/jest-css-modules"
 	},
+	moduleDirectories: ["node_modules", "<rootDir>src/"],
+	moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
+	coverageDirectory : "<rootDir>tests/coverage",
 	testPathIgnorePatterns: [
 		'<rootDir>node_modules/',
 		'<rootDir>demo/',

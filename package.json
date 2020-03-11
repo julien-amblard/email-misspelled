@@ -5,6 +5,7 @@
 	"scripts": {
 		"test:ci": "yarn jest --config=./tests/jest.config.js",
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
+		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"dev": "webpack-dev-server --mode development --config webpack.dev.js",
 		"demo": "yarn build:lib && webpack-dev-server --mode production --config webpack.prod.js",
 		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
