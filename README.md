@@ -44,7 +44,7 @@ emailChecker("user@otmail.com") // hotmail.com
 
 | Type | Default | Description |
 |:----|:----|:----|
-| `lengthDiffMax` | `2` | max length difference between two string |
+| `number` | `2` | max length difference between two string |
 
 ```js
 import emailMisspelled from "email-misspelled"
@@ -65,7 +65,7 @@ emailChecker1("user@tmail.com") // hotmail.com
 
 | Type | Default | Description |
 |:----|:----|:----|
-| `maxMisspelled` | `2` | max possible misspelled |
+| `number` | `2` | max possible misspelled |
 
 ```js
 import emailMisspelled from "email-misspelled"
@@ -86,7 +86,7 @@ emailChecker1("user@hotmia.com") // hotmail.com
 
 | Type | Default | Description |
 |:----|:----|:----|
-| `domainList` | [Domain list](#domainListDefault) | max possible misspelled |
+| `string[]` | [Domain list](#domainListDefault) | max possible misspelled |
 
 ```js
 import emailMisspelled from "email-misspelled"
