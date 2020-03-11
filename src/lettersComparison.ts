@@ -13,7 +13,7 @@ export const lettersComparison:LettersComparisonConfigInterface = ( value = "", 
 	const valueLetters:string[]  = value.split("")
 	const refLetters:string[] = ref.split("")
 
-	const remainsvalueLetters = valueLetters.filter( letter => {
+	const remainsvalueLetters = valueLetters.filter( (letter: string):boolean => {
 		const refLetterIndex: number = refLetters.indexOf(letter)
 		const haseLetter: boolean = refLetterIndex > -1
 		if( haseLetter ) refLetters.splice(refLetterIndex, 1)
