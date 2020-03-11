@@ -98,7 +98,7 @@ emailChecker1("user@randmo.org") // random.org
 
 ---
 
-### Default domain list <a id="domainList"></a>  
+### Default domain list <a id="domainListDefault"></a>  
 
 - `outlook.com`
 - `gmail.com`
