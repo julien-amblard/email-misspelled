@@ -1,4 +1,4 @@
-export const popularDomainList = [
+export const popularDomainList:string[] = [
 	"outlook.com",
 	"gmail.com",
 	"hotmail.com",
