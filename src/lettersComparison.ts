@@ -4,11 +4,11 @@ export interface LettersComparisonInterface {
 interface LettersComparisonConfigInterface {
 	(
 		value: string,
-		misspelledLength: number
+		misspelledMax: number
 	): LettersComparisonInterface
 }
 //https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance
-export const lettersComparison:LettersComparisonConfigInterface = ( value = "", misspelledLength = 1 ) => ( ref ) => {
+export const lettersComparison:LettersComparisonConfigInterface = ( value = "", misspelledMax = 1 ) => ( ref ) => {
 	const distanceMatrix = Array(value.length + 1).fill(null).map(() => Array(ref.length + 1).fill(null))
 
 	for( let i = 0; i <= ref.length; i+=1 ) distanceMatrix[0][i] = i
@@ -24,5 +24,5 @@ export const lettersComparison:LettersComparisonConfigInterface = ( value = "", 
 			)
 		}
 	}
-	return distanceMatrix[value.length][ref.length] <= misspelledLength
+	return distanceMatrix[value.length][ref.length] <= misspelledMax
 }

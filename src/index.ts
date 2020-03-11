@@ -11,19 +11,19 @@ interface EmailCheckerInterface {
 }
 interface EmailCheckerConfigInterface {
 	(config: {
-		lengthDiff?: number
-		misspelled?: number
+		lengthDiffMax?: number
+		maxMisspelled?: number
 		domainList?: string[]
 	}):EmailCheckerInterface
 }
 
-export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiff = 2, misspelled = 2, domainList = popularDomainList } = {}) => ( email ) => {
+export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, maxMisspelled = 2, domainList = popularDomainList } = {}) => ( email ) => {
 	if( !containsOneAt(email) || !!!domainList?.length ) return
 	const domain:string = getDomain(email)
 	
 	if( domainList.includes(domain) ) return
-	const sizeFilter:StringLengthCheckerInterface = stringLengthChecker(domain, lengthDiff)
-	const letterFilter:LettersComparisonInterface = lettersComparison(domain, misspelled)
+	const sizeFilter:StringLengthCheckerInterface = stringLengthChecker(domain, lengthDiffMax)
+	const letterFilter:LettersComparisonInterface = lettersComparison(domain, maxMisspelled)
 
 	const remainsDomains:string[] = domainList.filter(sizeFilter).filter(letterFilter)
 
