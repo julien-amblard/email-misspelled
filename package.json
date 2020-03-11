@@ -21,7 +21,7 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Julien-Amblard/package-template.git"
+		"url": "git+https://github.com/Julien-Amblard/email-misspelled.git"
 	},
 	"author": {
 		"name": "Julien Amblard",
@@ -30,9 +30,9 @@
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/Julien-Amblard/canvas-loop-engine/issues"
+		"url": "https://github.com/Julien-Amblard/email-misspelled/issues"
 	},
-	"homepage": "https://github.com/Julien-Amblard/canvas-loop-engine#readme",
+	"homepage": "https://github.com/Julien-Amblard/email-misspelled#readme",
 	"keywords": [
 		"email",
 		"domain",
