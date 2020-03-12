@@ -63,14 +63,14 @@ emailChecker1("user@otmail.com")
  **/
 emailChecker1("user@tmail.com") // undefined  
 
-const emailChecker1 = emailMisspelled({ lengthDiffMax: 2 })
+const emailChecker2 = emailMisspelled({ lengthDiffMax: 2 })
 
-emailChecker1("user@otmail.com")  
+emailChecker2("user@otmail.com")  
 /**  
  * return :  
  * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
  **/
-emailChecker1("user@tmail.com")  
+emailChecker2("user@tmail.com")  
 /**  
  * return :  
  * [
@@ -99,14 +99,19 @@ emailChecker1("user@hotmial.com")
  **/
 emailChecker1("user@hotmia.com") // undefined
 
-const emailChecker1 = emailMisspelled({ maxMisspelled: 2 })
+const emailChecker2 = emailMisspelled({ maxMisspelled: 3 })
 
-emailChecker1("user@hotmial.com")  
+emailChecker2("user@hotmial.com")  
 /**  
  * return :  
  * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
  **/
-emailChecker1("user@hotmia.com") // 3 misspelled, return undefined
+emailChecker2("user@hotmia.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 3, corrected:"user@hotmail.com"}]
+ **/
+emailChecker2("user@otmia.com") //4 misspelled, return undefined
 ```
 
 ---
