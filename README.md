@@ -6,7 +6,7 @@
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/Julien-Amblard/email-misspelled/blob/master/LICENSE)
   
-> Check misspell email domain and return a matching domain suggestion  
+> Check misspell email's domain and return a list of matching domain suggestions  
 
 String comparison is based on [this](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
 
@@ -27,14 +27,18 @@ or
 
 ---
 
-### Importing <a id="importing"></a>
+## Importing <a id="importing"></a>
 
 ```js
 import emailMisspelled from "email-misspelled"
 
 const emailChecker = emailMisspelled()
 
-emailChecker("user@otmail.com") // hotmail.com
+emailChecker("user@otmail.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ **/
 
 ```
 
@@ -52,13 +56,28 @@ emailChecker("user@otmail.com") // hotmail.com
 import emailMisspelled from "email-misspelled"
 const emailChecker1 = emailMisspelled({ lengthDiffMax: 1 })
 
-emailChecker1("user@otmail.com") // hotmail.com
-emailChecker1("user@tmail.com") // undefined
+emailChecker1("user@otmail.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ **/
+emailChecker1("user@tmail.com") // undefined  
 
 const emailChecker1 = emailMisspelled({ lengthDiffMax: 2 })
 
-emailChecker1("user@otmail.com") // hotmail.com
-emailChecker1("user@tmail.com") // hotmail.com
+emailChecker1("user@otmail.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ **/
+emailChecker1("user@tmail.com")  
+/**  
+ * return :  
+ * [
+ *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com"}
+ *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"},
+ * ]
+ **/
 ```
 
 ---
@@ -73,13 +92,21 @@ emailChecker1("user@tmail.com") // hotmail.com
 import emailMisspelled from "email-misspelled"
 const emailChecker1 = emailMisspelled({ maxMisspelled: 1 })
 
-emailChecker1("user@hotmial.com") // hotmail.com
+emailChecker1("user@hotmial.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
+ **/
 emailChecker1("user@hotmia.com") // undefined
 
 const emailChecker1 = emailMisspelled({ maxMisspelled: 2 })
 
-emailChecker1("user@hotmial.com") // hotmail.com
-emailChecker1("user@hotmia.com") // hotmail.com
+emailChecker1("user@hotmial.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
+ **/
+emailChecker1("user@hotmia.com") // 3 misspelled, return undefined
 ```
 
 ---
@@ -95,7 +122,11 @@ import emailMisspelled from "email-misspelled"
 const emailChecker1 = emailMisspelled({ domainList: ["random.org"] })
 
 emailChecker1("user@hotmial.com") // undefined
-emailChecker1("user@randmo.org") // random.org
+emailChecker1("user@randmo.org")  
+/**  
+ * return :  
+ * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org"}]
+ **/
 ```
 
 ---
