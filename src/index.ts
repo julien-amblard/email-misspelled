@@ -5,7 +5,8 @@ import { lettersComparison, LettersComparisonInterface } from "lettersComparison
 import { popularDomainList } from "popularDomainList"
 import { domainMapper } from "domainMapper"
 import { corrector, Corrector } from "corrector"
-import { ResultInterface } from "./Result.interface"
+import { sortByCount } from "sort"
+import { ResultInterface } from "Result.interface"
 
 interface EmailCheckerInterface {
 	( email: string ): ResultInterface[]|null
@@ -21,14 +22,6 @@ interface EmailCheckerConfigInterface {
 	}):EmailCheckerInterface
 }
 
-interface SortInterface {
-	(
-		a:ResultInterface, 
-		b:ResultInterface
-	): number
-}
-
-
 export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, maxMisspelled = 2, domainList = popularDomainList } = {}) => ( email ) => {
 	if( !containsOneAt(email) || !!!domainList?.length ) return
 	const domain:string = getDomain(email)
@@ -37,7 +30,6 @@ export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, ma
 	const sizeFilter:StringLengthCheckerInterface = stringLengthChecker(domain, lengthDiffMax)
 	const letterFilter:LettersComparisonInterface = lettersComparison(domain, maxMisspelled)
 	const correctorMapper:Corrector = corrector(email)
-	const sortByCount:SortInterface = (a, b) => a.misspelledCount - b.misspelledCount 
 
 	const remainsDomains:ResultInterface[] = domainList
 		.filter(sizeFilter)
