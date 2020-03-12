@@ -1,5 +1,23 @@
 import { lettersComparison } from "../../src/lettersComparison"
 
+describe("lettersComparison config : ", () => {
+	test("constructor return a function", () => {
+		const checker = lettersComparison("lorem", 1)
+		expect(typeof checker).toEqual("function")
+	})
+	test("constructor return a function", () => {
+		const checker = lettersComparison(null, 1)
+		expect(typeof checker).toEqual("function")
+	})
+	test("constructor return a function", () => {
+		const checker = lettersComparison()
+		expect(typeof checker).toEqual("function")
+	})
+	test("constructor return a function", () => {
+		const checker = lettersComparison("lorem")
+		expect(typeof checker).toEqual("function")
+	})
+})
 describe("lettersComparison with 1 max error : ", () => {
 	test("gmal.com compare to gmail.com should return true", () => {
 		const checker = lettersComparison("gmal.com", 1)
