@@ -19,9 +19,9 @@ String comparison is based on [this](https://github.com/trekhleb/javascript-algo
 - [Install](#install)
 - [Importing](#Importing)
 - [Options](#options)
-  - [lengthDiffMax](#lengthDiffMax)
   - [maxMisspelled](#maxMisspelled)
   - [domainList](#domainList)
+  - [lengthDiffMax](#lengthDiffMax)
 
 ## Install <a id="install"></a>
 
@@ -50,41 +50,7 @@ emailChecker("user@otmail.com")
 
 ## Options <a id="options"></a>  
 
-### lengthDiffMax <a id="lengthDiffMax"></a>  
 
-| Type | Default | Description |
-|:----|:----|:----|
-| `number` | `2` | max length difference between two string |
-
-```js
-import emailMisspelled from "email-misspelled"
-const emailChecker1 = emailMisspelled({ lengthDiffMax: 1 })
-
-emailChecker1("user@otmail.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
- **/
-emailChecker1("user@tmail.com") // undefined  
-
-const emailChecker2 = emailMisspelled({ lengthDiffMax: 2 })
-
-emailChecker2("user@otmail.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
- **/
-emailChecker2("user@tmail.com")  
-/**  
- * return :  
- * [
- *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com"}
- *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"},
- * ]
- **/
-```
-
----
 
 ### maxMisspelled <a id="maxMisspelled"></a>  
 
@@ -135,6 +101,43 @@ emailChecker1("user@randmo.org")
 /**  
  * return :  
  * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org"}]
+ **/
+```
+
+---
+
+
+### lengthDiffMax <a id="lengthDiffMax"></a>  
+
+| Type | Default | Description |
+|:----|:----|:----|
+| `number` | `2` | max length difference between two string |
+
+```js
+import emailMisspelled from "email-misspelled"
+const emailChecker1 = emailMisspelled({ lengthDiffMax: 1 })
+
+emailChecker1("user@otmail.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ **/
+emailChecker1("user@tmail.com") // undefined  
+
+const emailChecker2 = emailMisspelled({ lengthDiffMax: 2 })
+
+emailChecker2("user@otmail.com")  
+/**  
+ * return :  
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ **/
+emailChecker2("user@tmail.com")  
+/**  
+ * return :  
+ * [
+ *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com"}
+ *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"},
+ * ]
  **/
 ```
 
