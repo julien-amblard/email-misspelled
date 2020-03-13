@@ -37,11 +37,11 @@
 		"email",
 		"domain",
 		"misspelled",
-		"misspell",
-		"misstype",
+		"mailcheck",
+		"validator",
 		"checker",
 		"autocorrect",
-		"correct"
+		"corrector"
 	],
 	"devDependencies": {
 		"@babel/cli": "^7.7.4",
