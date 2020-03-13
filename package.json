@@ -3,13 +3,13 @@
 	"description": "Check misspell email's domain and return a list of matching domain suggestions",
 	"main": "lib/index.js",
 	"scripts": {
+		"dev": "webpack-dev-server --mode development --config webpack.dev.js",
+		"demo": "yarn build:lib && webpack-dev-server --mode production --config webpack.prod.js",
+
 		"test:ci": "yarn jest --config=./tests/jest.config.js",
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
-
-		"dev": "webpack-dev-server --mode development --config webpack.dev.js",
-		"demo": "yarn build:lib && webpack-dev-server --mode production --config webpack.prod.js",
 
 		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
 		"build:lib": "webpack --config webpack.config.js",
@@ -17,7 +17,9 @@
 		"prepublishOnly": "yarn test:ci && yarn build:all"
 	},
 	"files": [
-		"/lib"
+		"/lib/index.js",
+		"/lib/index.d.ts",
+		"/lib/Result.interface.d.ts"
 	],
 	"repository": {
 		"type": "git",
