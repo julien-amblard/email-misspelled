@@ -1,12 +1,16 @@
 # email-misspelled
+**Lightweight 4ko lib**  
 
+---
 [![CircleCI Status](https://circleci.com/gh/Julien-Amblard/email-misspelled.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Julien-Amblard/email-misspelled)
 [![codecov](https://codecov.io/gh/Julien-Amblard/email-misspelled/branch/master/graph/badge.svg)](https://codecov.io/gh/Julien-Amblard/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/Julien-Amblard/email-misspelled/blob/master/LICENSE)
   
+  ---
 > Check misspell email's domain and return a list of matching domain suggestions  
+
 
 String comparison is based on [this](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
 
