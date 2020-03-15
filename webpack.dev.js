@@ -9,7 +9,7 @@ module.exports = {
 	output : {
 		path: path.resolve(__dirname,'demo/dist')
 	},
-	target: "web",
+	target: "node",
 	module: {
 		rules: [
 			{
