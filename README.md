@@ -14,6 +14,11 @@
 
 String comparison is based on [this](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
 
+  ---
+
+# [live codepen demo](https://codepen.io/Capse/details/LYGVRoP)
+  ---
+  
 <!-- ## [Live example](https://codepen.io/Capse/pen/gObOKGo) -->
 
 - [Install](#install)
