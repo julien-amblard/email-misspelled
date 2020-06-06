@@ -16,11 +16,9 @@ String comparison is based on [this](https://github.com/trekhleb/javascript-algo
 
   ---
 
-# [live codepen demo](https://codepen.io/Capse/details/LYGVRoP)
+# [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
   ---
   
-<!-- ## [Live example](https://codepen.io/Capse/pen/gObOKGo) -->
-
 - [Install](#install)
 - [Importing](#Importing)
 - [Options](#options)
