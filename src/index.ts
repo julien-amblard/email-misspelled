@@ -8,10 +8,10 @@ import { corrector, Corrector } from "corrector"
 import { sortByCount } from "sort"
 import { ResultInterface } from "Result.interface"
 
-interface EmailCheckerInterface {
+interface EmailMisspelledInterface {
 	( email: string ): ResultInterface[]|undefined
 }
-interface EmailCheckerConfigInterface {
+interface EmailMisspelledConfigInterface {
 	(config: {
 		/** Max length different between strings; Default: 2 */
 		lengthDiffMax?: number
@@ -19,10 +19,10 @@ interface EmailCheckerConfigInterface {
 		maxMisspelled?: number
 		/** List of email domain to check */
 		domainList?: string[]
-	}):EmailCheckerInterface
+	}):EmailMisspelledInterface
 }
 
-export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, maxMisspelled = 2, domainList = popularDomainList } = {}) => ( email ) => {
+export const emailMisspelled:EmailMisspelledConfigInterface = ({ lengthDiffMax = 2, maxMisspelled = 2, domainList = popularDomainList } = {}) => ( email ) => {
 	if( !containsOneAt(email) || !!!domainList?.length ) return
 	const domain:string = getDomain(email)
 	
@@ -40,4 +40,4 @@ export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, ma
 
 	return !!remainsDomains.length ? remainsDomains : undefined
 }
-export default emailChecker
+export default emailMisspelled
