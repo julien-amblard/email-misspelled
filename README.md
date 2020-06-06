@@ -90,7 +90,7 @@ emailChecker2("user@otmia.com") //4 misspelled, return undefined
 
 | Type | Default | Description |
 |:----|:----|:----|
-| `string[]` | [Domain list](#domainListDefault) | max possible misspelled |
+| `string[]` | [Domain list](#domainListDefault) | list of checked domains |
 
 ```js
 import emailMisspelled from "email-misspelled"
@@ -250,7 +250,7 @@ emailChecker2("user@tmail.com")
 
 ## TODO  
 
-- [ ] Doc
+- [x] Doc
 - [x] TU
 - [x] TS
 - [x] Extend default domain list
