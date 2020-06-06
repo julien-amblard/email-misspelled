@@ -9,7 +9,7 @@ import { sortByCount } from "sort"
 import { ResultInterface } from "Result.interface"
 
 interface EmailCheckerInterface {
-	( email: string ): ResultInterface[]|null
+	( email: string ): ResultInterface[]|undefined
 }
 interface EmailCheckerConfigInterface {
 	(config: {
@@ -38,6 +38,6 @@ export const emailChecker:EmailCheckerConfigInterface = ({ lengthDiffMax = 2, ma
 		.map(correctorMapper)
 		.sort(sortByCount)
 
-	return !!remainsDomains.length ? remainsDomains : undefined 
+	return !!remainsDomains.length ? remainsDomains : undefined
 }
 export default emailChecker
