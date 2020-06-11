@@ -28,6 +28,9 @@ jobs:
           name: Build coverage
           command: npm run test:coverage
 
+      - store_artifacts:
+          path: tests/coverage/lcov-report
+
       - run:
           name: Report coverage
           command: npm run test:coverage:report
