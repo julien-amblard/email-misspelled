@@ -20,12 +20,12 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Julien-Amblard/email-misspelled.git"
+		"url": "git+https://github.com/sl-julienamblard/email-misspelled.git"
 	},
 	"author": {
 		"name": "Julien Amblard",
 		"email": "amblard.julien@gmail.com",
-		"url": "https://github.com/Julien-Amblard"
+		"url": "https://github.com/sl-julienamblard"
 	},
 	"license": "MIT",
 	"bugs": {
