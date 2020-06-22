@@ -1,48 +1,47 @@
 {
 	"name": "email-misspelled",
-	"description": "Check misspell email's domain and return a list of matching domain suggestions",
+	"description": "Check misspell email domain and return a matching domain suggestion",
 	"main": "lib/index.js",
 	"scripts": {
-		"dev": "webpack-dev-server --mode development --config webpack.dev.ts",
-		"test": "yarn test:watch",
 		"test:ci": "yarn jest --config=./tests/jest.config.js",
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
+
+		"dev": "webpack-dev-server --mode development --config webpack.dev.js",
+		"demo": "yarn build:lib && webpack-dev-server --mode production --config webpack.prod.js",
+
 		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
-		"build:lib": "webpack --config webpack.config.ts",
+		"build:lib": "webpack --config webpack.config.js",
 		"build:types": "tsc",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
 	},
 	"files": [
-		"/lib/index.js",
-		"/lib/index.d.ts",
-		"/lib/Result.interface.d.ts"
+		"/lib"
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sl-julienamblard/email-misspelled.git"
+		"url": "git+https://github.com/Julien-Amblard/email-misspelled.git"
 	},
 	"author": {
 		"name": "Julien Amblard",
 		"email": "amblard.julien@gmail.com",
-		"url": "https://github.com/sl-julienamblard"
+		"url": "https://github.com/Julien-Amblard"
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/sl-julienamblard/email-misspelled/issues"
+		"url": "https://github.com/Julien-Amblard/email-misspelled/issues"
 	},
-	"homepage": "https://github.com/sl-julienamblard/email-misspelled#readme",
+	"homepage": "https://github.com/Julien-Amblard/email-misspelled#readme",
 	"keywords": [
 		"email",
 		"domain",
 		"misspelled",
-		"mailcheck",
-		"validator",
+		"misspell",
+		"misstype",
 		"checker",
 		"autocorrect",
-		"lightweight",
-		"corrector"
+		"correct"
 	],
 	"devDependencies": {
 		"@babel/cli": "^7.7.4",
@@ -53,7 +52,6 @@
 		"@babel/polyfill": "^7.7.0",
 		"@babel/preset-env": "^7.7.4",
 		"@babel/preset-typescript": "^7.8.3",
-		"@types/jest": "^26.0.0",
 		"@types/webpack": "^4.41.7",
 		"babel-jest": "^24.9.0",
 		"babel-loader": "^8.0.6",
@@ -68,6 +66,5 @@
 		"webpack": "^4.41.2",
 		"webpack-cli": "^3.3.10",
 		"webpack-dev-server": "^3.9.0"
-	},
-	"dependencies": {}
+	}
 }

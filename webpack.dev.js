@@ -5,11 +5,11 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({
 	filename: "./index.html"
 });
 module.exports = {
-	entry: path.join(__dirname, "demo/src/index.ts"),
+	entry: path.join(__dirname, "demo/src/index.js"),
 	output : {
 		path: path.resolve(__dirname,'demo/dist')
 	},
-	target: "node",
+	target: "web",
 	module: {
 		rules: [
 			{

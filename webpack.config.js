@@ -2,7 +2,13 @@ var path = require('path')
 var webpack = require('webpack')
 const config = {
 	entry : './src/index.ts',
+	output : {
+		path: path.resolve(__dirname,'lib'),
+		filename: 'index.js',
+		libraryTarget: 'umd'
+	},
 	mode: 'production',
+	plugins: [],
 	resolve: {
 		modules: [path.resolve(__dirname, './src'), 'node_modules'],
 		extensions: [".js", ".jsx", ".ts", ".tsx"]
@@ -27,22 +33,4 @@ const config = {
 		]
 	}
 }
-const configWeb = {
-	...config,
-	target: "web",
-	output : {
-		path: path.resolve(__dirname,'lib'),
-		filename: 'index.js',
-		libraryTarget: 'umd'
-	}
-}
-const configNode = {
-	...config,
-	target: "node",
-	output : {
-		path: path.resolve(__dirname,'lib'),
-		filename: 'index.node.js',
-		libraryTarget: 'umd'
-	}
-}
-module.exports = [ configWeb, configNode ]
+module.exports = config
