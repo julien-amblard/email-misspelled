@@ -9,16 +9,17 @@ import { sortByCount } from "helpers/sort"
 import { ResultInterface } from "interfaces/Result.interface"
 
 interface EmailMisspelledInterface {
-	(email: string): ResultInterface[] | undefined
+	(email: string): ResultInterface[] | ResultInterface | null
 }
 interface EmailMisspelledConfigInterface {
 	(config?: {
-		/** Max length different between strings; Default: 2 */
+		/** Maximum length difference between strings; Default: 2 */
 		lengthDiffMax?: number
-		/** Max misspelled allowed; Default: 2 */
+		/** Number of misspelled error allowed; Default: 2 */
 		maxMisspelled?: number
 		/** List of email domain to compare */
 		domainList?: string[]
+		onlyFirst?: boolean
 	}): EmailMisspelledInterface
 }
 
@@ -26,6 +27,7 @@ export const emailMisspelled: EmailMisspelledConfigInterface = ({
 	lengthDiffMax = 2,
 	maxMisspelled = 2,
 	domainList = popularDomainList,
+	onlyFirst = false,
 } = {}) => email => {
 	if (!containsOneAt(email) || !!!domainList?.length) return
 	const domain: string = getDomain(email)
@@ -42,6 +44,6 @@ export const emailMisspelled: EmailMisspelledConfigInterface = ({
 		.map(correctorMapper)
 		.sort(sortByCount)
 
-	return !!remainsDomains.length ? remainsDomains : undefined
+	return !!remainsDomains.length ? remainsDomains : null
 }
 export default emailMisspelled
