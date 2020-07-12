@@ -113,11 +113,33 @@ List of domains avaibles :
 - [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/more.ts)
 - [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/all.ts)
 
-Feel free to contribute
+**examples**
 
----
+```js  
+import { popularDomains, hotmailDomains, liveDomains } from "email-misspelled"  
+```  
 
-### `maxMisspelled` <a id="maxMisspelled"></a>
+**or**  
+
+```js  
+import { popularDomains, hotmailDomains, liveDomains } from "email-misspelled/domains"  
+//etc  
+```  
+
+**or**  
+
+```js  
+import popularDomains from "email-misspelled/domains/popular"  
+import hotmailDomains from "email-misspelled/domains/hotmail"  
+import liveDomains from "email-misspelled/domains/live"  
+//etc  
+```  
+
+Feel free to contribute  
+
+---  
+
+### `maxMisspelled` <a id="maxMisspelled"></a>  
 
 | Type | Required | Default | Description |
 | :--- | :------- | :------ | :---------- |
