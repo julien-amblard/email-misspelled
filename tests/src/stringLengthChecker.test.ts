@@ -1,4 +1,3 @@
-import "@types/jest"
 import { stringLengthChecker } from "../../src/stringLengthChecker"
 
 describe("stringLengthChecker with diff of 1 : ", () => {
@@ -31,7 +30,7 @@ describe("stringLengthChecker with diff of 1 : ", () => {
 		expect(checker("efghjkl")).toBe(false)
 	})
 	test("nothing compare efghjkl to should return false", () => {
-		const checker = stringLengthChecker()
+		const checker = stringLengthChecker("")
 		expect(checker("efghjkl")).toBe(false)
 	})
 })

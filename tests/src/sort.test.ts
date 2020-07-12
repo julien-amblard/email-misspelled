@@ -1,4 +1,3 @@
-import "@types/jest"
 import { sortByCount } from "../../src/helpers/sort"
 
 describe("sort", () => {

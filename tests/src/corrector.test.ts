@@ -1,4 +1,3 @@
-import "@types/jest"
 import { corrector } from "../../src/helpers/corrector"
 
 describe("corrector : ", () => {

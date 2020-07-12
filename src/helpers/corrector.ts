@@ -8,5 +8,6 @@ interface CorrectorConfig {
 export const corrector: CorrectorConfig = email => value => {
 	if (!!!email || !!!value?.suggest) return value
 	value.corrected = email.replace(/@.*$/, `@${value.suggest}`)
+	value.original = email
 	return value
 }

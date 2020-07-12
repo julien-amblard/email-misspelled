@@ -1,4 +1,3 @@
-import "@types/jest"
 import { containsOneAt } from "../../src/helpers/containsOneAt"
 
 describe("containsOneAt : ", () => {

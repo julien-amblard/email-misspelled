@@ -1,6 +1,6 @@
 # email-misspelled
 
-**Lightweight 4ko lib**
+**Lightweight <3ko lib**
 
 ---
 
@@ -69,7 +69,7 @@ const emailChecker1 = emailMisspelled({ maxMisspelled: 1 })
 emailChecker1("user@hotmial.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
  **/
 emailChecker1("user@hotmia.com") // undefined
 
@@ -255,7 +255,7 @@ emailChecker2("user@tmail.com")
 
 -   [ ] update demo
 -   [ ] external domain list
--   [ ] split domain list into smallest part (only hotmail, only gmail etc)
+-   [x] split domain list into smallest part (only hotmail, only gmail etc)
 -   [ ] allow returning only first result
 -   [x] Doc
 -   [x] TU

@@ -1,4 +1,3 @@
-import "@types/jest"
 import { lettersComparison } from "../../src/lettersComparison"
 
 describe("lettersComparison config : ", () => {
@@ -11,11 +10,11 @@ describe("lettersComparison config : ", () => {
 		expect(typeof checker).toEqual("function")
 	})
 	test("constructor return a function", () => {
-		const checker = lettersComparison()
+		const checker = lettersComparison("", 1)
 		expect(typeof checker).toEqual("function")
 	})
 	test("constructor return a function", () => {
-		const checker = lettersComparison("lorem")
+		const checker = lettersComparison("lorem", 1)
 		expect(typeof checker).toEqual("function")
 	})
 })
@@ -39,10 +38,6 @@ describe("lettersComparison with 1 max error : ", () => {
 	test("gmail compare to nothing should return false", () => {
 		const checker = lettersComparison("gmail.com", 1)
 		expect(checker({ suggest: "" })).toBe(false)
-	})
-	test("gmail compare to null should return false", () => {
-		const checker = lettersComparison("gmail.com", 1)
-		expect(checker()).toBe(false)
 	})
 })
 
@@ -71,10 +66,6 @@ describe("lettersComparison with 2 max error : ", () => {
 		const checker = lettersComparison("gmail.com", 2)
 		expect(checker({ suggest: "" })).toBe(false)
 	})
-	test("gmail compare to null should return false", () => {
-		const checker = lettersComparison("gmail.com", 2)
-		expect(checker()).toBe(false)
-	})
 })
 
 describe("lettersComparison with 3 max error : ", () => {
@@ -101,9 +92,5 @@ describe("lettersComparison with 3 max error : ", () => {
 	test("gmail compare to nothing should return false", () => {
 		const checker = lettersComparison("gmail.com", 3)
 		expect(checker({ suggest: "" })).toBe(false)
-	})
-	test("gmail compare to null should return false", () => {
-		const checker = lettersComparison("gmail.com", 3)
-		expect(checker()).toBe(false)
 	})
 })
