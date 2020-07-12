@@ -1,0 +1,8 @@
+export { aolDomains } from "./aol"
+export { hotmailDomains } from "./hotmail"
+export { liveDomains } from "./live"
+export { outlookDomains } from "./outlook"
+export { microsoftDomains } from "./microsoft"
+export { othersDomains } from "./others"
+export { popularDomains } from "./popular"
+export { yahooDomains } from "./yahoo"
