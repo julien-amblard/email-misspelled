@@ -1,3 +1,4 @@
+import "@types/jest"
 import { getDomain } from "../../src/helpers/getDomain"
 
 describe("getDomain : ", () => {

@@ -1,3 +1,4 @@
+import "@types/jest"
 import emailChecker from "../../src"
 
 describe("emailChecker default config : ", () => {
@@ -39,10 +40,8 @@ describe("emailChecker default config : ", () => {
 	})
 })
 
-
-
 describe("emailChecker extend config : ", () => {
-	const checker = emailChecker({ lengthDiffMax: 3, maxMisspelled: 3})
+	const checker = emailChecker({ lengthDiffMax: 3, maxMisspelled: 3 })
 	test("test@nothing.com should return undefined", () => {
 		expect(checker("test@nothing.com")).toBe(undefined)
 	})
@@ -84,9 +83,6 @@ describe("emailChecker extend config : ", () => {
 		expect(checker("test@ootlok.c")).toBe(undefined)
 	})
 })
-
-
-
 
 describe("emailChecker strick config : ", () => {
 	const checker = emailChecker({ lengthDiffMax: 1, maxMisspelled: 1 })

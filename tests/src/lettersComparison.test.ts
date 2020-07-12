@@ -1,3 +1,4 @@
+import "@types/jest"
 import { lettersComparison } from "../../src/lettersComparison"
 
 describe("lettersComparison config : ", () => {
@@ -45,7 +46,6 @@ describe("lettersComparison with 1 max error : ", () => {
 	})
 })
 
-
 describe("lettersComparison with 2 max error : ", () => {
 	test("gmal.com compare to gmail.com should return true", () => {
 		const checker = lettersComparison("gmal.com", 2)
@@ -76,7 +76,6 @@ describe("lettersComparison with 2 max error : ", () => {
 		expect(checker()).toBe(false)
 	})
 })
-
 
 describe("lettersComparison with 3 max error : ", () => {
 	test("gmal.com compare to gmail.com should return true", () => {
