@@ -79,8 +79,6 @@ Result = {
 }[]
 ```
 
----
-
 <a id="options"></a>
 
 <h2 align="center">Options</h2>
