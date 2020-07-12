@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"baseUrl": "./src",
+		"downlevelIteration": true,
 		"strict": false,
 		"outDir": "./lib",
 		"lib": ["ESNext"],
