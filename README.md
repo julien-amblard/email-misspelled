@@ -1,15 +1,6 @@
-<h2 align="center">email-misspelled</h2>
+<h2 align="center">email-misspelled</h2>  
 
-Lightweight < 3ko lib
-
-Check the misspelled email's domain and return a list of matching domain suggestions sorted by corrections needed
-
-The string comparison is based on [this algorithm](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
-
-## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
-
----
-<div align="center">
+<div align="center">  
 
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![CircleCI Status](https://circleci.com/gh/sl-julienamblard/email-misspelled.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/sl-julienamblard/email-misspelled)
@@ -18,9 +9,16 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/sl-julienamblard/email-misspelled/blob/master/LICENSE)
 
-</div>
+</div>  
 
----
+
+Lightweight < 3ko lib
+
+Check the misspelled email's domain and return a list of matching domain suggestions sorted by corrections needed
+
+The string comparison is based on [this algorithm](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
+
+## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
 
 ## Table of Contents
 
