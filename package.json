@@ -9,16 +9,19 @@
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
-		"build:all": "rimraf ./lib && yarn build:domains && yarn build:lib & yarn build:types",
-		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts,.tsx,.js,.jsx",
-		"build:lib": "webpack --config webpack.config.ts",
+		"clear": "rimraf ./lib && rimraf ./domains",
+		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains & yarn build:types",
+		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts,.tsx,.js,.jsx",
+		"build:domains": "babel src/domains --out-dir domains --extensions .ts,.tsx,.js,.jsx",
+		"build:webpack": "webpack --config webpack.config.ts",
 		"build:types": "tsc",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
 	},
 	"files": [
 		"/lib/index.js",
+		"/lib/emailMisspelled.js",
 		"/lib/index.d.ts",
-		"/lib/domains",
+		"/domains",
 		"/lib/Result.interface.d.ts"
 	],
 	"repository": {

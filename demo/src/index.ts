@@ -1,16 +1,15 @@
 import "./core.scss"
-import emailChecker from "../../src"
-import { popularDomains } from "../../src/domains"
-const checker = emailChecker({ domains: popularDomains })
+import emailMisspelled, { popularDomains } from "../../lib"
+const checker = emailMisspelled({ domains: popularDomains })
 
 console.log(checker("zefzefzef@outloook.com"))
 console.log(checker("zefzefzef@kooltuo.com"))
-console.log(emailChecker({ domains: popularDomains, maxMisspelled: 4 })("zefzefzef@hotmial.co"))
+console.log(emailMisspelled({ domains: popularDomains, maxMisspelled: 4 })("zefzefzef@hotmial.co"))
 console.log(checker("zefzefzef@gmial.com"))
 
-const emailChecker1 = emailChecker({ domains: popularDomains, maxMisspelled: 1 })
+const emailMisspelled1 = emailMisspelled({ domains: popularDomains, maxMisspelled: 1 })
 
-console.log(emailChecker1("user@hotmil.com"))
+console.log(emailMisspelled1("user@hotmil.com"))
 
 const $input = document.querySelector("input")
 const $list = document.querySelector(".corrections")
