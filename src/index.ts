@@ -1,17 +1,17 @@
 import { containsOneAt } from "helpers/containsOneAt"
 import { getDomain } from "helpers/getDomain"
-import { stringLengthChecker, StringLengthCheckerInterface } from "stringLengthChecker"
-import { lettersComparison, LettersComparisonInterface } from "lettersComparison"
-import { popularDomainList } from "data/popularDomainList"
+import { stringLengthChecker, StringLengthChecker } from "stringLengthChecker"
+import { lettersComparison, LettersComparison } from "lettersComparison"
+import { popularDomainList } from "domains/popular"
 import { domainMapper } from "helpers/domainMapper"
 import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
-import { ResultInterface } from "interfaces/Result.interface"
+import { Result } from "interfaces/Result.interface"
 
-interface EmailMisspelledInterface {
-	(email: string): ResultInterface[] | ResultInterface | null
+interface EmailMisspelled {
+	(email: string): Result[] | Result | null
 }
-interface EmailMisspelledConfigInterface {
+interface EmailMisspelledConstructor {
 	(config?: {
 		/** Maximum length difference between strings; Default: 2 */
 		lengthDiffMax?: number
@@ -20,10 +20,10 @@ interface EmailMisspelledConfigInterface {
 		/** List of email domain to compare */
 		domainList?: string[]
 		onlyFirst?: boolean
-	}): EmailMisspelledInterface
+	}): EmailMisspelled
 }
 
-export const emailMisspelled: EmailMisspelledConfigInterface = ({
+export const emailMisspelled: EmailMisspelledConstructor = ({
 	lengthDiffMax = 2,
 	maxMisspelled = 2,
 	domainList = popularDomainList,
@@ -33,11 +33,11 @@ export const emailMisspelled: EmailMisspelledConfigInterface = ({
 	const domain: string = getDomain(email)
 
 	if (domainList.includes(domain)) return
-	const sizeFilter: StringLengthCheckerInterface = stringLengthChecker(domain, lengthDiffMax)
-	const letterFilter: LettersComparisonInterface = lettersComparison(domain, maxMisspelled)
+	const sizeFilter: StringLengthChecker = stringLengthChecker(domain, lengthDiffMax)
+	const letterFilter: LettersComparison = lettersComparison(domain, maxMisspelled)
 	const correctorMapper: Corrector = corrector(email)
 
-	const remainsDomains: ResultInterface[] = domainList
+	const remainsDomains: Result[] = domainList
 		.filter(sizeFilter)
 		.map(domainMapper)
 		.filter(letterFilter)

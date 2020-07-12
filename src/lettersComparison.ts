@@ -1,12 +1,12 @@
-import { ResultInterface } from "./interfaces/Result.interface"
-export interface LettersComparisonInterface {
-	(ref: ResultInterface): boolean
+import { Result } from "./interfaces/Result.interface"
+export interface LettersComparison {
+	(ref: Result): boolean
 }
-interface LettersComparisonConfigInterface {
-	(value: string, misspelledMax: number): LettersComparisonInterface
+interface LettersComparisonConstructor {
+	(value: string, misspelledMax: number): LettersComparison
 }
 //https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance
-export const lettersComparison: LettersComparisonConfigInterface = (value = "", misspelledMax = 1) => (
+export const lettersComparison: LettersComparisonConstructor = (value = "", misspelledMax = 1) => (
 	ref = { suggest: "" }
 ) => {
 	const distanceMatrix = Array(value.length + 1)

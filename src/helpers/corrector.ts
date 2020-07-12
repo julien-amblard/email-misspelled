@@ -1,6 +1,6 @@
-import { ResultInterface } from "interfaces/Result.interface"
+import { Result } from "interfaces/Result.interface"
 export interface Corrector {
-	(value: ResultInterface): ResultInterface
+	(value: Result): Result
 }
 interface CorrectorConfig {
 	(email: string): Corrector
