@@ -1,4 +1,4 @@
-export const hotmailDomains: string[] = [
+export const hotmail: string[] = [
 	"hotmail.com",
 	"hotmail.com.ar",
 	"hotmail.com.au",
@@ -39,4 +39,4 @@ export const hotmailDomains: string[] = [
 	"hotmail.co.uk",
 ]
 
-export default hotmailDomains
+export default hotmail

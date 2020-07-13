@@ -1,20 +1,10 @@
-import aolDomains from "./aol"
-import hotmailDomains from "./hotmail"
-import liveDomains from "./live"
-import outlookDomains from "./outlook"
-import moreDomains from "./more"
-import popularDomains from "./popular"
-import yahooDomains from "./yahoo"
+import aol from "./aol"
+import hotmail from "./hotmail"
+import live from "./live"
+import outlook from "./outlook"
+import more from "./more"
+import top100 from "./top100"
+import yahoo from "./yahoo"
 
-export const allDomains: string[] = [
-	...new Set([
-		...popularDomains,
-		...aolDomains,
-		...hotmailDomains,
-		...liveDomains,
-		...outlookDomains,
-		...moreDomains,
-		...yahooDomains,
-	]),
-]
-export default allDomains
+export const all: string[] = [...new Set([...top100, ...aol, ...hotmail, ...live, ...outlook, ...more, ...yahoo])]
+export default all

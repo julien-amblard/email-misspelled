@@ -1,4 +1,4 @@
-export const outlookDomains: string[] = [
+export const outlook: string[] = [
 	"outlook.com",
 	"outlook.sa",
 	"outlook.com.ar",
@@ -32,4 +32,4 @@ export const outlookDomains: string[] = [
 	"outlook.com.vn",
 ]
 
-export default outlookDomains
+export default outlook

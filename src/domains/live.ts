@@ -1,4 +1,4 @@
-export const liveDomains: string[] = [
+export const live: string[] = [
 	"windowslive.com",
 	"live.com.ar",
 	"live.com.au",
@@ -32,4 +32,4 @@ export const liveDomains: string[] = [
 	"live.co.uk",
 ]
 
-export default liveDomains
+export default live

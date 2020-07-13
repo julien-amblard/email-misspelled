@@ -1,13 +1,13 @@
 import "./core.scss"
-import emailMisspelled, { popularDomains } from "../../lib"
-const checker = emailMisspelled({ domains: popularDomains })
+import emailMisspelled, { top100 } from "../../src"
+const checker = emailMisspelled({ domains: top100 })
 
 console.log(checker("zefzefzef@outloook.com"))
 console.log(checker("zefzefzef@kooltuo.com"))
-console.log(emailMisspelled({ domains: popularDomains, maxMisspelled: 4 })("zefzefzef@hotmial.co"))
+console.log(emailMisspelled({ domains: top100, maxMisspelled: 4 })("zefzefzef@hotmial.co"))
 console.log(checker("zefzefzef@gmial.com"))
 
-const emailMisspelled1 = emailMisspelled({ domains: popularDomains, maxMisspelled: 1 })
+const emailMisspelled1 = emailMisspelled({ domains: top100, maxMisspelled: 1 })
 
 console.log(emailMisspelled1("user@hotmil.com"))
 

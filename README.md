@@ -52,9 +52,9 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 
 
 ```js
-import emailMisspelled, { popularDomains } from "email-misspelled"
+import emailMisspelled, { top100 } from "email-misspelled"
 
-const emailChecker = emailMisspelled({ domains: popularDomains })
+const emailChecker = emailMisspelled({ domains: top100 })
 
 emailChecker("user@otmail.com")
 /**
@@ -103,7 +103,7 @@ emailChecker("user@randmo.org")
 
 List of domains avaibles :  
 
-- [Most popular domains list](#domainListDefault)
+- [Top 100 domains list](#top100)
 - [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
 - [Live](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/live.ts)
 - [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/outlook.ts)
@@ -116,22 +116,22 @@ List of domains avaibles :
 **examples**
 
 ```js  
-import { popularDomains, hotmailDomains, liveDomains } from "email-misspelled"  
+import { top100, hotmail, live } from "email-misspelled"  
 ```  
 
 **or**  
 
 ```js  
-import { popularDomains, hotmailDomains, liveDomains } from "email-misspelled/domains"  
+import { top100, hotmail, live } from "email-misspelled/domains"  
 //etc  
 ```  
 
 **or**  
 
 ```js  
-import popularDomains from "email-misspelled/domains/popular"  
-import hotmailDomains from "email-misspelled/domains/hotmail"  
-import liveDomains from "email-misspelled/domains/live"  
+import top100 from "email-misspelled/domains/popular"  
+import hotmail from "email-misspelled/domains/hotmail"  
+import live from "email-misspelled/domains/live"  
 //etc  
 ```  
 
@@ -143,13 +143,13 @@ Feel free to contribute
 
 | Type | Required | Default | Description |
 | :--- | :------- | :------ | :---------- |
-| `number` | true | `2` | max possible misspelled |
+| `number` | false | `2` | max possible misspelled |
 
 <br />
 
 ```js
-import emailMisspelled, { popularDomains } from "email-misspelled"
-const emailChecker1 = emailMisspelled({ maxMisspelled: 1, domains: popularDomains })
+import emailMisspelled, { top100 } from "email-misspelled"
+const emailChecker1 = emailMisspelled({ maxMisspelled: 1, domains: top100 })
 
 emailChecker1("user@hotmial.com")
 /**
@@ -158,7 +158,7 @@ emailChecker1("user@hotmial.com")
  **/
 emailChecker1("user@hotmia.com") // null
 
-const emailChecker2 = emailMisspelled({ maxMisspelled: 3, domains: popularDomains })
+const emailChecker2 = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
 emailChecker2("user@hotmial.com")
 /**
@@ -179,13 +179,13 @@ emailChecker2("user@otmia.com") //4 misspelled, return undefined
 
 | Type | Required | Default | Description |
 | :--- | :------- | :------ | :---------- |
-| `number` | true | `2` | max length difference between two string |
+| `number` | false | `2` | max length difference between two string |
 
 <br />
 
 ```js
-import emailMisspelled, { popularDomains } from "email-misspelled"
-const emailChecker1 = emailMisspelled({ lengthDiffMax: 1, domains: popularDomains })
+import emailMisspelled, { top100 } from "email-misspelled"
+const emailChecker1 = emailMisspelled({ lengthDiffMax: 1, domains: top100 })
 
 emailChecker1("user@otmail.com")
 /**
@@ -194,7 +194,7 @@ emailChecker1("user@otmail.com")
  **/
 emailChecker1("user@tmail.com") // null
 
-const emailChecker2 = emailMisspelled({ lengthDiffMax: 2, domains: popularDomains })
+const emailChecker2 = emailMisspelled({ lengthDiffMax: 2, domains: top100 })
 
 emailChecker2("user@otmail.com")
 /**
@@ -217,15 +217,15 @@ emailChecker2("user@tmail.com")
 
 | Type | Required | Default | Description |
 | :--- | :------- | :------ | :---------- |
-| `boolean` | true | `false` | return only the first result |
+| `boolean` | false | `false` | return only the first result |
 
 <br />  
 
 ```js
-import emailMisspelled, { popularDomains } from "email-misspelled"  
+import emailMisspelled, { top100 } from "email-misspelled"  
 const emailChecker1 = emailMisspelled({  
     justOne: true,  
-    domains: popularDomains  
+    domains: top100  
 })
 
 emailChecker1("user@otmail.com")
@@ -237,7 +237,7 @@ emailChecker1("user@otmail.com")
 
 ---
 
-### Popular domains list <a id="popularDomainsList"></a>
+### Top 100 domains list <a id="top100"></a>
 
 ordered by number of existing email
 

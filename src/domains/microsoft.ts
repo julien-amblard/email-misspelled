@@ -1,5 +1,5 @@
-import hotmailDomains from "./hotmail"
-import liveDomains from "./live"
-import outlookDomains from "./outlook"
+import hotmail from "./hotmail"
+import live from "./live"
+import outlook from "./outlook"
 
-export const microsoftDomains: string[] = [...hotmailDomains, ...liveDomains, ...outlookDomains]
+export const microsoft: string[] = [...hotmail, ...live, ...outlook]

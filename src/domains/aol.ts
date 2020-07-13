@@ -1,4 +1,4 @@
-export const aolDomains: string[] = [
+export const aol: string[] = [
 	"aol.at",
 	"aol.be",
 	"aol.ch",
@@ -30,4 +30,4 @@ export const aolDomains: string[] = [
 	"aol.se",
 	"aol.tw",
 ]
-export default aolDomains
+export default aol

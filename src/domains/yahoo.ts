@@ -1,4 +1,4 @@
-export const yahooDomains: string[] = [
+export const yahoo: string[] = [
 	"yahoo.com",
 	"yahoo.fr",
 	"yahoo.cl",
@@ -68,4 +68,4 @@ export const yahooDomains: string[] = [
 	"yahooxtra.co.nz",
 ]
 
-export default yahooDomains
+export default yahoo

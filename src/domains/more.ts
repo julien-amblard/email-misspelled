@@ -1,4 +1,4 @@
-export const moreDomains: string[] = [
+export const more: string[] = [
 	"aim.com",
 	"bellatlantic.net",
 	"citlink.net",
@@ -25,4 +25,4 @@ export const moreDomains: string[] = [
 	"ymail.com",
 ]
 
-export default moreDomains
+export default more

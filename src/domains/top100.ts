@@ -1,4 +1,4 @@
-export const popularDomains: string[] = [
+export const top100: string[] = [
 	"gmail.com",
 	"yahoo.com",
 	"hotmail.com",
@@ -101,4 +101,4 @@ export const popularDomains: string[] = [
 	"bigpond.net.au",
 ]
 
-export default popularDomains
+export default top100
