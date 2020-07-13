@@ -1,8 +1,8 @@
 import emailChecker from "../../src"
-import { popularDomains } from "../../src/domains"
+import { top100 } from "../../src"
 
 describe("emailChecker default config : ", () => {
-	const checker = emailChecker({ domains: popularDomains })
+	const checker = emailChecker({ domains: top100 })
 	test("nothing should return null", () => {
 		expect(checker("")).toBe(null)
 	})
@@ -41,7 +41,7 @@ describe("emailChecker default config : ", () => {
 })
 
 describe("emailChecker extend config : ", () => {
-	const checker = emailChecker({ domains: popularDomains, lengthDiffMax: 3, maxMisspelled: 3 })
+	const checker = emailChecker({ domains: top100, lengthDiffMax: 3, maxMisspelled: 3 })
 	test("test@nothing.com should return null", () => {
 		expect(checker("test@nothing.com")).toBe(null)
 	})
@@ -85,7 +85,7 @@ describe("emailChecker extend config : ", () => {
 })
 
 describe("emailChecker strick config : ", () => {
-	const checker = emailChecker({ domains: popularDomains, lengthDiffMax: 1, maxMisspelled: 1 })
+	const checker = emailChecker({ domains: top100, lengthDiffMax: 1, maxMisspelled: 1 })
 	test("test@nothing.com should return null", () => {
 		expect(checker("test@nothing.com")).toBe(null)
 	})
