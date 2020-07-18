@@ -1,4 +1,4 @@
-import { Result } from "interfaces/Result.interface"
+import { Result } from "../emailMisspelled"
 export interface Corrector {
 	(value: Result): Result
 }

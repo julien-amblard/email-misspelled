@@ -1,5 +1,5 @@
-import { Result } from "../interfaces/Result.interface"
+// import { Result } from "../emailMisspelled"
 interface Sort {
-	(a: Result, b: Result): number
+	(a: { misspelledCount: number }, b: { misspelledCount: number }): number
 }
 export const sortByCount: Sort = (a, b) => a.misspelledCount - b.misspelledCount

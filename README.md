@@ -28,7 +28,6 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
     - [**`domains`**](#domains)
     - [**`maxMisspelled`**](#maxMisspelled)
     - [**`lengthDiffMax`**](#lengthDiffMax)
-    - [**`justOne`**](#justOne)
 
 <a id="install"></a>
 
@@ -58,7 +57,7 @@ const emailChecker = emailMisspelled({ domains: top100 })
 
 emailChecker("user@otmail.com")
 /**
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
  **/
 ```
 
@@ -93,11 +92,11 @@ Result = {
 import emailMisspelled from "email-misspelled"
 const emailChecker = emailMisspelled({ domains: ["random.org"] })
 
-emailChecker("user@hotmial.com") // null
+emailChecker("user@hotmial.com") // []
 emailChecker("user@randmo.org")
 /**
  * return :
- * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org"}]
+ * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org", original: "user@randmo.org"}]
  **/
 ```
 
@@ -154,23 +153,23 @@ const emailChecker1 = emailMisspelled({ maxMisspelled: 1, domains: top100 })
 emailChecker1("user@hotmial.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@hotmial.com"}]
  **/
-emailChecker1("user@hotmia.com") // null
+emailChecker1("user@hotmia.com") // []
 
 const emailChecker2 = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 
 emailChecker2("user@hotmial.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com", original: "user@hotmial.com"}]
  **/
 emailChecker2("user@hotmia.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 3, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 3, corrected:"user@hotmail.com", original: "user@hotmia.com"}]
  **/
-emailChecker2("user@otmia.com") //4 misspelled, return undefined
+emailChecker2("user@otmia.com") //4 misspelled, return []
 ```
 
 ---
@@ -190,52 +189,29 @@ const emailChecker1 = emailMisspelled({ lengthDiffMax: 1, domains: top100 })
 emailChecker1("user@otmail.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
  **/
-emailChecker1("user@tmail.com") // null
+emailChecker1("user@tmail.com") // []
 
 const emailChecker2 = emailMisspelled({ lengthDiffMax: 2, domains: top100 })
 
 emailChecker2("user@otmail.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
  **/
 emailChecker2("user@tmail.com")
 /**
  * return :
  * [
- *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com"}
- *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"},
+ *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com", original: "user@tmail.com" }
+ *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com", original: "user@tmail.com"},
  * ]
  **/
 ```
 
 ---
 
-#### `justOne` <a id="justOne"></a>
-
-| Type | Required | Default | Description |
-| :--- | :------- | :------ | :---------- |
-| `boolean` | false | `false` | return only the first result |
-
-<br />  
-
-```js
-import emailMisspelled, { top100 } from "email-misspelled"  
-const emailChecker1 = emailMisspelled({  
-    justOne: true,  
-    domains: top100  
-})
-
-emailChecker1("user@otmail.com")
-/**
- * return :
- * { suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}
- **/
-```
-
----
 
 ### Top 100 domains list <a id="top100"></a>
 
@@ -349,7 +325,7 @@ ordered by number of existing email
 - [ ] update demo
 - [x] external domain list
 - [x] split domain list into smallest part (only hotmail, only gmail etc)
-- [x] allow returning only first result
+- [ ] allow returning only first result
 - [x] Doc
 - [x] TU
 - [x] TS

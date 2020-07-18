@@ -1,4 +1,4 @@
-import { Result } from "./interfaces/Result.interface"
+import { Result } from "./emailMisspelled"
 export interface LettersComparison {
 	(ref: Result): boolean
 }
@@ -7,7 +7,7 @@ interface LettersComparisonConstructor {
 }
 //https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance
 export const lettersComparison: LettersComparisonConstructor = (value = "", misspelledMax = 1) => (
-	ref = { suggest: "" }
+	ref = { suggest: "", corrected: "", original: "", misspelledCount: 0 }
 ) => {
 	const distanceMatrix = Array(value.length + 1)
 		.fill(null)

@@ -5,10 +5,16 @@ import { lettersComparison, LettersComparison } from "lettersComparison"
 import { domainMapper } from "helpers/domainMapper"
 import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
-import { Result } from "interfaces/Result.interface"
+// import { Result } from "interfaces/Result.interface"
+export interface Result {
+	suggest: string
+	corrected: string
+	original: string
+	misspelledCount: number
+}
 
 export interface EmailMisspelled {
-	(email: string): Result[] | Result | null
+	(email: string): Result[]
 }
 export type EmailMisspelledConstructor = {
 	(config: {
@@ -18,8 +24,6 @@ export type EmailMisspelledConstructor = {
 		maxMisspelled?: number
 		/** List of email domain to compare */
 		domains: string[]
-		/** Return only the first element of suggestions; default false */
-		justOne?: false
 	}): EmailMisspelled
 }
 
@@ -29,16 +33,15 @@ const MAX_MISSPELLED = 2
 export const emailMisspelled: EmailMisspelledConstructor = ({
 	lengthDiffMax = DEFAULT_LENGTH,
 	maxMisspelled = MAX_MISSPELLED,
-	justOne = false,
 	domains,
 }) => {
 	if (!!!domains || !Array.isArray(domains)) throw new Error("Please provide a domain list")
 
 	return email => {
-		if (!containsOneAt(email) || !!!domains?.length) return null
+		if (!containsOneAt(email) || !!!domains?.length) return []
 
 		const domain: string = getDomain(email)
-		if (domains.includes(domain)) return null
+		if (domains.includes(domain)) return []
 
 		const sizeFilter: StringLengthChecker = stringLengthChecker(domain, lengthDiffMax)
 		const letterFilter: LettersComparison = lettersComparison(domain, maxMisspelled)
@@ -51,7 +54,7 @@ export const emailMisspelled: EmailMisspelledConstructor = ({
 			.map(correctorMapper)
 			.sort(sortByCount)
 
-		return !!remainsDomains.length ? (justOne ? remainsDomains[0] : remainsDomains) : null
+		return !!remainsDomains.length ? remainsDomains : []
 	}
 }
 export default emailMisspelled

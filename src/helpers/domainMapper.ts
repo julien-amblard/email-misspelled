@@ -1,5 +1,5 @@
-import { Result } from "../interfaces/Result.interface"
+import { Result } from "../emailMisspelled"
 export interface DomainMapper {
 	(suggest: string): Result
 }
-export const domainMapper: DomainMapper = suggest => ({ suggest })
+export const domainMapper: DomainMapper = suggest => ({ suggest, corrected: "", original: "", misspelledCount: 0 })

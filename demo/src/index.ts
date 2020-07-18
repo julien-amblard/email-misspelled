@@ -1,6 +1,7 @@
 import "./core.scss"
-import emailMisspelled, { top100 } from "../../src"
+import emailMisspelled, { top100, Result } from "../../src"
 const checker = emailMisspelled({ domains: top100 })
+const interactChecker = emailMisspelled({ domains: top100 })
 
 console.log(checker("zefzefzef@outloook.com"))
 console.log(checker("zefzefzef@kooltuo.com"))
@@ -15,23 +16,22 @@ const $input = document.querySelector("input")
 const $list = document.querySelector(".corrections")
 
 const onChange = event => {
-	const suggestions = checker(event.currentTarget.value)
+	const suggestions = interactChecker(event.currentTarget.value)
 	clearList()
 	if (!!!suggestions?.length) return
 	updateList(suggestions)
 }
 
-const updateList = suggestions => {
+const updateList = (suggestions: Result[]) => {
 	suggestions.forEach(({ corrected }) => {
 		const $li = getNewLi(corrected)
-		console.log(corrected)
 		$list.appendChild($li)
 	})
 }
 
 const clearList = () => ($list.innerHTML = "")
 
-const setInputVal = label => () => {
+const setInputVal = (label: string) => () => {
 	$input.value = label
 	clearList()
 }
