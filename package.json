@@ -21,8 +21,7 @@
 		"/lib/index.js",
 		"/lib/emailMisspelled.js",
 		"/lib/index.d.ts",
-		"/domains",
-		"/lib/Result.interface.d.ts"
+		"/domains"
 	],
 	"repository": {
 		"type": "git",
