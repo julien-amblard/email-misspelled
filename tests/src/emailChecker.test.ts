@@ -3,6 +3,10 @@ import { top100 } from "../../src"
 
 describe("emailChecker default config : ", () => {
 	const checker = emailChecker({ domains: top100 })
+	test("should throw an error", () => {
+		expect(emailChecker).toThrow("Please provide a domain list")
+		expect(() => emailChecker({ domains: [] })).toThrow("Please provide a domain list")
+	})
 	test("nothing should return []", () => {
 		expect(checker("")).toEqual([])
 	})

@@ -30,15 +30,17 @@ export type EmailMisspelledConstructor = {
 const DEFAULT_LENGTH = 2
 const MAX_MISSPELLED = 2
 
-export const emailMisspelled: EmailMisspelledConstructor = ({
-	lengthDiffMax = DEFAULT_LENGTH,
-	maxMisspelled = MAX_MISSPELLED,
-	domains,
-}) => {
-	if (!!!domains || !Array.isArray(domains)) throw new Error("Please provide a domain list")
+export const emailMisspelled: EmailMisspelledConstructor = (
+	{ lengthDiffMax = DEFAULT_LENGTH, maxMisspelled = MAX_MISSPELLED, domains } = {
+		lengthDiffMax: DEFAULT_LENGTH,
+		maxMisspelled: MAX_MISSPELLED,
+		domains: [],
+	}
+) => {
+	if (!!!domains || !Array.isArray(domains) || !!!domains.length) throw new Error("Please provide a domain list")
 
 	return email => {
-		if (!containsOneAt(email) || !!!domains?.length) return []
+		if (!containsOneAt(email)) return []
 
 		const domain: string = getDomain(email)
 		if (domains.includes(domain)) return []
