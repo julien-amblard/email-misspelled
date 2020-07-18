@@ -7,7 +7,7 @@
 		"lib": ["ESNext"],
 		"declaration": true,
 		"emitDeclarationOnly": true,
-		"isolatedModules": false,
+		"isolatedModules": true,
 		"forceConsistentCasingInFileNames": true,
 		"moduleResolution": "node",
 		"noUnusedLocals": true,

@@ -1,4 +1,3 @@
-// import { Result } from "../emailMisspelled"
 interface Sort {
 	(a: { misspelledCount: number }, b: { misspelledCount: number }): number
 }

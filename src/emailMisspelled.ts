@@ -5,7 +5,7 @@ import { lettersComparison, LettersComparison } from "lettersComparison"
 import { domainMapper } from "helpers/domainMapper"
 import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
-// import { Result } from "interfaces/Result.interface"
+
 export interface Result {
 	suggest: string
 	corrected: string
