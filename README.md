@@ -327,11 +327,12 @@ ordered by number of existing email
 
 ## TODO
 
-- [ ] update demo
 - [x] external domain list
 - [x] split domain list into smallest part (only hotmail, only gmail etc)
-- [ ] allow returning only first result
 - [x] Doc
 - [x] TU
 - [x] TS
 - [x] Extend default domain list
+- [ ] update demo
+- [ ] explicit folder for types exports
+- [ ] allow returning only first result

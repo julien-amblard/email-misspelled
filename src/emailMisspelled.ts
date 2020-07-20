@@ -7,13 +7,13 @@ import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
 
 export interface Result {
-	/** suggested domain */
+	/** Suggested domain */
 	suggest: string
-	/** corrected email */
+	/** Corrected email */
 	corrected: string
-	/** number correction needed */
+	/** Number correction needed */
 	misspelledCount: number
-	/** original email */
+	/** Original email */
 	original: string
 }
 
