@@ -11,8 +11,8 @@
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
 		"clear": "rimraf ./lib && rimraf ./domains",
 		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains & yarn build:types",
-		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts,.tsx,.js,.jsx",
-		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts,.tsx,.js,.jsx",
+		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts",
+		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts && babel src/domains --out-dir domains --extensions .ts",
 		"build:webpack": "webpack --config webpack.config.ts",
 		"build:types": "tsc",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
@@ -23,7 +23,8 @@
 		"/lib/emailMisspelled.js",
 		"/lib/emailMisspelled.d.ts",
 		"/lib/emailMisspelled.node.js",
-		"/lib/domains"
+		"/lib/domains",
+		"/domains"
 	],
 	"repository": {
 		"type": "git",

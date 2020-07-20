@@ -25,9 +25,9 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 1. [Install](#install)
 2. [Usages](#usages)
 3. [Options](#options)
-    - [**`domains`**](#domains)
-    - [**`maxMisspelled`**](#maxMisspelled)
-    - [**`lengthDiffMax`**](#lengthDiffMax)
+    - [**domains**](#domains)
+    - [**maxMisspelled**](#maxMisspelled)
+    - [**lengthDiffMax**](#lengthDiffMax)
 
 <a id="install"></a>
 
@@ -61,6 +61,8 @@ emailChecker("user@otmail.com")
  **/
 ```
 
+<br />
+
 **Returned object model**  
 
 ```ts
@@ -75,6 +77,7 @@ Result = {
     original: string  
 }[]
 ```
+<br />
 
 <a id="options"></a>
 
@@ -99,6 +102,8 @@ emailChecker("user@randmo.org")
  * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org", original: "user@randmo.org"}]
  **/
 ```
+
+<br />
 
 List of domains avaibles :  
 
