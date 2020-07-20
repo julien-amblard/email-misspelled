@@ -1,5 +1,4 @@
-import { ResultInterface } from "../interfaces/Result.interface"
-interface SortInterface {
-	(a: ResultInterface, b: ResultInterface): number
+interface Sort {
+	(a: { misspelledCount: number }, b: { misspelledCount: number }): number
 }
-export const sortByCount: SortInterface = (a, b) => a.misspelledCount - b.misspelledCount
+export const sortByCount: Sort = (a, b) => a.misspelledCount - b.misspelledCount

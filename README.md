@@ -1,153 +1,221 @@
-# email-misspelled
-**Lightweight 4ko lib**  
+<h2 align="center">email-misspelled</h2>  
 
----
+<div align="center">  
+
+[![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![CircleCI Status](https://circleci.com/gh/sl-julienamblard/email-misspelled.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/sl-julienamblard/email-misspelled)
 [![codecov](https://codecov.io/gh/sl-julienamblard/email-misspelled/branch/master/graph/badge.svg)](https://codecov.io/gh/sl-julienamblard/email-misspelled)
 [![npm](https://img.shields.io/bundlephobia/min/email-misspelled)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/sl-julienamblard/email-misspelled/blob/master/LICENSE)
-  
-  ---
-> Check misspell email's domain and return a list of matching domain suggestions  
+
+</div>  
 
 
-String comparison is based on [this](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
+Lightweight < 3ko lib
 
-  ---
+Check the misspelled email's domain and return a list of matching domain suggestions sorted by corrections needed
 
-# [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
-  ---
-  
-- [Install](#install)
-- [Importing](#Importing)
-- [Options](#options)
-  - [maxMisspelled](#maxMisspelled)
-  - [domainList](#domainList)
-  - [lengthDiffMax](#lengthDiffMax)
+The string comparison is based on [this algorithm](https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance)
 
-## Install <a id="install"></a>
+## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
 
-`npm i email-misspelled --save`  
-or  
-`yarn add email-misspelled`  
+## Table of Contents
 
----
+1. [Install](#install)
+2. [Usages](#usages)
+3. [Options](#options)
+    - [**`domains`**](#domains)
+    - [**`maxMisspelled`**](#maxMisspelled)
+    - [**`lengthDiffMax`**](#lengthDiffMax)
 
-## Importing <a id="importing"></a>
+<a id="install"></a>
+
+<h2 align="center">Install</h2>
+
+*Install with npm:*
+
+```bash
+    npm i email-misspelled --save
+```
+
+*Install with yarn:*
+
+```bash
+    yarn add email-misspelled
+```
+
+<a id="usages"></a>
+
+<h2 align="center">Usages</h2>
+
+
+```js
+import emailMisspelled, { top100 } from "email-misspelled"
+
+const emailChecker = emailMisspelled({ domains: top100 })
+
+emailChecker("user@otmail.com")
+/**
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
+ **/
+```
+
+**Returned object model**  
+
+```ts
+Result = {
+    /** suggested domain */  
+    suggest: string  
+    /** corrected email */  
+    corrected: string  
+    /** number correction needed */  
+    misspelledCount: number  
+    /** original email */  
+    original: string  
+}[]
+```
+
+<a id="options"></a>
+
+<h2 align="center">Options</h2>
+
+### `domains` <a id="domains"></a>
+
+| Type | Required | Description |
+| :--- | :------- | :---------- |
+| `string[]` | true | list of domains to compare |
+
+<br />
 
 ```js
 import emailMisspelled from "email-misspelled"
+const emailChecker = emailMisspelled({ domains: ["random.org"] })
 
-const emailChecker = emailMisspelled()
-
-emailChecker("user@otmail.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
+emailChecker("user@hotmial.com") // []
+emailChecker("user@randmo.org")
+/**
+ * return :
+ * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org", original: "user@randmo.org"}]
  **/
+```
 
+List of domains avaibles :  
+
+- [Top 100 domains list](#top100)
+- [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
+- [Live](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/live.ts)
+- [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/outlook.ts)
+- [Microsoft (a combination of hotmail, live and outlook emails](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/microsoft.ts)
+- [Yahoo](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/yahoo.ts)
+- [Aol](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/aol.ts)
+- [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/more.ts)
+- [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/all.ts)
+
+**examples**
+
+```js  
+import { top100, hotmail, live } from "email-misspelled"  
+```  
+
+**or**  
+
+```js  
+import { top100, hotmail, live } from "email-misspelled/domains"  
+//etc  
+```  
+
+**or**  
+
+```js  
+import top100 from "email-misspelled/domains/popular"  
+import hotmail from "email-misspelled/domains/hotmail"  
+import live from "email-misspelled/domains/live"  
+//etc  
+```  
+
+Feel free to contribute  
+
+---  
+
+### `maxMisspelled` <a id="maxMisspelled"></a>  
+
+| Type | Required | Default | Description |
+| :--- | :------- | :------ | :---------- |
+| `number` | false | `2` | max possible misspelled |
+
+<br />
+
+```js
+import emailMisspelled, { top100 } from "email-misspelled"
+const emailChecker1 = emailMisspelled({ maxMisspelled: 1, domains: top100 })
+
+emailChecker1("user@hotmial.com")
+/**
+ * return :
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@hotmial.com"}]
+ **/
+emailChecker1("user@hotmia.com") // []
+
+const emailChecker2 = emailMisspelled({ maxMisspelled: 3, domains: top100 })
+
+emailChecker2("user@hotmial.com")
+/**
+ * return :
+ * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com", original: "user@hotmial.com"}]
+ **/
+emailChecker2("user@hotmia.com")
+/**
+ * return :
+ * [{ suggest: "hotmail.com", misspelledCount: 3, corrected:"user@hotmail.com", original: "user@hotmia.com"}]
+ **/
+emailChecker2("user@otmia.com") //4 misspelled, return []
 ```
 
 ---
 
-## Options <a id="options"></a>  
+#### `lengthDiffMax` <a id="lengthDiffMax"></a>
 
+| Type | Required | Default | Description |
+| :--- | :------- | :------ | :---------- |
+| `number` | false | `2` | max length difference between two string |
 
-
-### maxMisspelled <a id="maxMisspelled"></a>  
-
-| Type | Default | Description |
-|:----|:----|:----|
-| `number` | `2` | max possible misspelled |
+<br />
 
 ```js
-import emailMisspelled from "email-misspelled"
-const emailChecker1 = emailMisspelled({ maxMisspelled: 1 })
+import emailMisspelled, { top100 } from "email-misspelled"
+const emailChecker1 = emailMisspelled({ lengthDiffMax: 1, domains: top100 })
 
-emailChecker1("user@hotmial.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
+emailChecker1("user@otmail.com")
+/**
+ * return :
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
  **/
-emailChecker1("user@hotmia.com") // undefined
+emailChecker1("user@tmail.com") // []
 
-const emailChecker2 = emailMisspelled({ maxMisspelled: 3 })
+const emailChecker2 = emailMisspelled({ lengthDiffMax: 2, domains: top100 })
 
-emailChecker2("user@hotmial.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"}]
+emailChecker2("user@otmail.com")
+/**
+ * return :
+ * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
  **/
-emailChecker2("user@hotmia.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 3, corrected:"user@hotmail.com"}]
- **/
-emailChecker2("user@otmia.com") //4 misspelled, return undefined
-```
-
----
-
-### domainList <a id="domainList"></a>  
-
-| Type | Default | Description |
-|:----|:----|:----|
-| `string[]` | [Domain list](#domainListDefault) | list of checked domains |
-
-```js
-import emailMisspelled from "email-misspelled"
-const emailChecker1 = emailMisspelled({ domainList: ["random.org"] })
-
-emailChecker1("user@hotmial.com") // undefined
-emailChecker1("user@randmo.org")  
-/**  
- * return :  
- * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org"}]
- **/
-```
-
----
-
-
-### lengthDiffMax <a id="lengthDiffMax"></a>  
-
-| Type | Default | Description |
-|:----|:----|:----|
-| `number` | `2` | max length difference between two string |
-
-```js
-import emailMisspelled from "email-misspelled"
-const emailChecker1 = emailMisspelled({ lengthDiffMax: 1 })
-
-emailChecker1("user@otmail.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
- **/
-emailChecker1("user@tmail.com") // undefined  
-
-const emailChecker2 = emailMisspelled({ lengthDiffMax: 2 })
-
-emailChecker2("user@otmail.com")  
-/**  
- * return :  
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com"}]
- **/
-emailChecker2("user@tmail.com")  
-/**  
- * return :  
+emailChecker2("user@tmail.com")
+/**
+ * return :
  * [
- *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com"}
- *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com"},
+ *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com", original: "user@tmail.com" }
+ *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com", original: "user@tmail.com"},
  * ]
  **/
 ```
 
 ---
 
-### Default domain list <a id="domainListDefault"></a>  
+
+### Top 100 domains list <a id="top100"></a>
+
+ordered by number of existing email
 
 - `gmail.com`
 - `yahoo.com`
@@ -252,8 +320,12 @@ emailChecker2("user@tmail.com")
 
 ---
 
-## TODO  
+## TODO
 
+- [ ] update demo
+- [x] external domain list
+- [x] split domain list into smallest part (only hotmail, only gmail etc)
+- [ ] allow returning only first result
 - [x] Doc
 - [x] TU
 - [x] TS

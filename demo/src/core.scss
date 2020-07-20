@@ -1,21 +1,94 @@
 html,
 body {
 	margin: 0;
-	background-color: #bb229af2;
+	background-color: #393e52;
+	font-family: "Courier New", Courier, arial;
+	color: #e4e4e4;
 }
 
-.container {
+* {
+	box-sizing: border-box;
+}
+
+.wrapper {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
+}
 
-	div {
-		display: inline-flex;
-		margin: 12px;
-		border-radius: 4px;
-		position: relative;
-		vertical-align: top;
-		z-index: 0;
+.links {
+	display: flex;
+	justify-content: center;
+
+	a {
+		margin: 16px;
+	}
+
+	.git {
+		svg {
+			height: 32px;
+			width: 32px;
+		}
+	}
+
+	.npm {
+		svg {
+			height: 32px;
+			width: 32px;
+		}
+	}
+}
+
+.code {
+	display: inline-block;
+	margin: 6px;
+	padding: 2px 6px;
+	background-color: #38323a;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+.description {
+	margin: 16px;
+	text-align: center;
+}
+
+.demo {
+	margin: 16px;
+	text-align: center;
+}
+
+input {
+	padding: 12px 8px;
+	width: 300px;
+	border-radius: 4px;
+	border: 0;
+}
+
+.corrections {
+	padding: 0;
+	margin: 8px auto;
+	width: 300px;
+	background-color: white;
+	border-radius: 4px;
+	overflow: hidden;
+	text-align: left;
+	opacity: 0.7;
+
+	&Item {
+		list-style: none;
+		color: black;
+		padding: 8px;
+
+		&:hover {
+			background-color: #cddc39;
+			cursor: pointer;
+		}
+	}
+
+	&Item+&Item {
+		border-top: solid 1px #e2e2e2;
 	}
 }

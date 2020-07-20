@@ -30,14 +30,10 @@ describe("stringLengthChecker with diff of 1 : ", () => {
 		expect(checker("efghjkl")).toBe(false)
 	})
 	test("nothing compare efghjkl to should return false", () => {
-		const checker = stringLengthChecker()
+		const checker = stringLengthChecker("")
 		expect(checker("efghjkl")).toBe(false)
 	})
 })
-
-
-
-
 
 describe("stringLengthChecker with diff of 2 : ", () => {
 	const max = 2
@@ -70,7 +66,6 @@ describe("stringLengthChecker with diff of 2 : ", () => {
 		expect(checker("efghjkl")).toBe(false)
 	})
 })
-
 
 describe("stringLengthChecker with diff of 3 : ", () => {
 	const max = 3

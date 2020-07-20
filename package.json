@@ -9,15 +9,21 @@
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
-		"build:all": "rimraf ./lib && yarn build:lib && yarn build:types",
-		"build:lib": "webpack --config webpack.config.ts",
+		"clear": "rimraf ./lib && rimraf ./domains",
+		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains & yarn build:types",
+		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts,.tsx,.js,.jsx",
+		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts,.tsx,.js,.jsx",
+		"build:webpack": "webpack --config webpack.config.ts",
 		"build:types": "tsc",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
 	},
 	"files": [
 		"/lib/index.js",
 		"/lib/index.d.ts",
-		"/lib/Result.interface.d.ts"
+		"/lib/emailMisspelled.js",
+		"/lib/emailMisspelled.d.ts",
+		"/lib/emailMisspelled.node.js",
+		"/lib/domains"
 	],
 	"repository": {
 		"type": "git",
@@ -55,19 +61,19 @@
 		"@babel/preset-typescript": "^7.8.3",
 		"@types/jest": "^26.0.0",
 		"@types/webpack": "^4.41.7",
-		"babel-jest": "^24.9.0",
+		"babel-jest": "^26.1.0",
 		"babel-loader": "^8.0.6",
-		"codecov": "^3.6.5",
+		"codecov": "^3.7.1",
 		"css-loader": "^3.2.0",
-		"html-webpack-plugin": "^3.2.0",
-		"jest": "^24.9.0",
+		"html-webpack-plugin": "^4.3.0",
+		"jest": "^26.1.0",
 		"node-sass": "^4.13.0",
-		"sass-loader": "^8.0.0",
+		"sass-loader": "^9.0.2",
 		"style-loader": "^1.0.1",
+		"ts-jest": "^26.1.1",
 		"typescript": "^3.8.3",
-		"webpack": "^4.41.2",
+		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.10",
 		"webpack-dev-server": "^3.9.0"
-	},
-	"dependencies": {}
+	}
 }

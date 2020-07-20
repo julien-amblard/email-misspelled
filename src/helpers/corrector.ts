@@ -1,6 +1,6 @@
-import { ResultInterface } from "interfaces/Result.interface"
+import { Result } from "../emailMisspelled"
 export interface Corrector {
-	(value: ResultInterface): ResultInterface
+	(value: Result): Result
 }
 interface CorrectorConfig {
 	(email: string): Corrector
@@ -8,5 +8,6 @@ interface CorrectorConfig {
 export const corrector: CorrectorConfig = email => value => {
 	if (!!!email || !!!value?.suggest) return value
 	value.corrected = email.replace(/@.*$/, `@${value.suggest}`)
+	value.original = email
 	return value
 }

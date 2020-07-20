@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"baseUrl": "./src",
+		"downlevelIteration": true,
 		"strict": false,
 		"outDir": "./lib",
 		"lib": ["ESNext"],
@@ -12,6 +13,6 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true
 	},
-	"include": ["src"],
-	"exclude": ["node_modules"]
+	"typeRoots": ["node_modules/@types"],
+	"include": ["src"]
 }
