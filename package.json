@@ -12,7 +12,7 @@
 		"clear": "rimraf ./lib && rimraf ./domains",
 		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains & yarn build:types",
 		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts",
-		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts && babel src/domains --out-dir domains --extensions .ts",
+		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts && cpy lib/domains domains",
 		"build:webpack": "webpack --config webpack.config.ts",
 		"build:types": "tsc",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
@@ -65,6 +65,7 @@
 		"babel-jest": "^26.1.0",
 		"babel-loader": "^8.0.6",
 		"codecov": "^3.7.1",
+		"cpy-cli": "^3.1.1",
 		"css-loader": "^3.2.0",
 		"html-webpack-plugin": "^4.3.0",
 		"jest": "^26.1.0",
