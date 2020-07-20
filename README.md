@@ -67,10 +67,10 @@ emailChecker("user@otmail.com")
 Result = {
     /** suggested domain */  
     suggest: string  
-    /** number correction needed */  
-    misspelledCount: number  
     /** corrected email */  
     corrected: string  
+    /** number correction needed */  
+    misspelledCount: number  
     /** original email */  
     original: string  
 }[]
