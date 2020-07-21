@@ -3,9 +3,9 @@
 <div align="center">  
 
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![CircleCI Status](https://circleci.com/gh/sl-julienamblard/email-misspelled.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/sl-julienamblard/email-misspelled)
-[![codecov](https://codecov.io/gh/sl-julienamblard/email-misspelled/branch/master/graph/badge.svg)](https://codecov.io/gh/sl-julienamblard/email-misspelled)
-[![npm](https://img.shields.io/bundlephobia/min/email-misspelled)](https://www.npmjs.com/package/email-misspelled)
+[![CircleCI Status](https://img.shields.io/circleci/build/github/sl-julienamblard/email-misspelled/master?style=flat-square)](https://circleci.com/gh/sl-julienamblard/email-misspelled)
+[![codecov](https://img.shields.io/codecov/c/github/sl-julienamblard/email-misspelled?logo=codecov&style=flat-square)](https://codecov.io/gh/sl-julienamblard/email-misspelled)
+[![npm](https://img.shields.io/bundlephobia/minzip/email-misspelled?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/sl-julienamblard/email-misspelled/blob/master/LICENSE)
 
