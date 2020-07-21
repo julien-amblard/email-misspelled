@@ -1,4 +1,5 @@
-export const top100: string[] = [
+import { DomainList } from "../types"
+export const top100: DomainList = [
 	"gmail.com",
 	"yahoo.com",
 	"hotmail.com",

@@ -5,31 +5,7 @@ import { lettersComparison, LettersComparison } from "lettersComparison"
 import { domainMapper } from "helpers/domainMapper"
 import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
-
-export interface Result {
-	/** Suggested domain */
-	suggest: string
-	/** Corrected email */
-	corrected: string
-	/** Number correction needed */
-	misspelledCount: number
-	/** Original email */
-	original: string
-}
-
-export interface EmailMisspelled {
-	(email: string): Result[]
-}
-export type EmailMisspelledConstructor = {
-	(config: {
-		/** Maximum length difference between strings; Default: 2 */
-		lengthDiffMax?: number
-		/** Number of misspelled error allowed; Default: 2 */
-		maxMisspelled?: number
-		/** List of email domain to compare */
-		domains: string[]
-	}): EmailMisspelled
-}
+import { Result, EmailMisspelledConstructor } from "./types"
 
 const DEFAULT_LENGTH = 2
 const MAX_MISSPELLED = 2

@@ -1,5 +1,6 @@
 import hotmail from "./hotmail"
 import live from "./live"
 import outlook from "./outlook"
+import { DomainList } from "../types"
 
-export const microsoft: string[] = [...hotmail, ...live, ...outlook]
+export const microsoft: DomainList = [...hotmail, ...live, ...outlook]

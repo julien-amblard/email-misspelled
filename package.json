@@ -10,12 +10,13 @@
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
 		"clear": "rimraf ./lib && rimraf ./domains",
-		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains && yarn build:types && yarn build:domains:copy",
+		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains && yarn build:types && yarn build:domains:copy && yarn build:types:copy",
 		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts",
 		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts",
 		"build:domains:copy": "cpy lib/domains domains",
 		"build:webpack": "webpack --config webpack.config.ts",
 		"build:types": "tsc",
+		"build:types:copy": "cpy lib/types types",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
 	},
 	"files": [
@@ -25,7 +26,8 @@
 		"/lib/emailMisspelled.d.ts",
 		"/lib/emailMisspelled.node.js",
 		"/lib/domains",
-		"/domains"
+		"/domains",
+		"/types"
 	],
 	"repository": {
 		"type": "git",

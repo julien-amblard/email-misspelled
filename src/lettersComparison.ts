@@ -1,4 +1,4 @@
-import { Result } from "./emailMisspelled"
+import { Result } from "./types"
 export interface LettersComparison {
 	(ref: Result): boolean
 }
