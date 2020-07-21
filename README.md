@@ -28,6 +28,7 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
     - [**domains**](#domains)
     - [**maxMisspelled**](#maxMisspelled)
     - [**lengthDiffMax**](#lengthDiffMax)
+4. [Typescript support](#types)
 
 <a id="install"></a>
 
@@ -57,14 +58,19 @@ const emailChecker = emailMisspelled({ domains: top100 })
 
 emailChecker("user@otmail.com")
 /**
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
+ * [{ 
+ *      suggest: "hotmail.com", 
+ *      misspelledCount: 1, 
+ *      corrected:"user@hotmail.com", 
+ *      original: "user@otmail.com"
+ * }]
  **/
 ```
 
 <br />
 
 **Returned object model**  
-
+[Result](#TResult)
 ```ts
 Result = {
     /** suggested domain */  
@@ -87,7 +93,7 @@ Result = {
 
 | Type | Required | Description |
 | :--- | :------- | :---------- |
-| `string[]` | true | list of domains to compare |
+| `string[]` [DomainList](#TDomainList) | true | list of domains to compare |
 
 <br />
 
@@ -99,7 +105,12 @@ emailChecker("user@hotmial.com") // []
 emailChecker("user@randmo.org")
 /**
  * return :
- * [{ suggest: "random.org", misspelledCount: 1, corrected:"user@random.org", original: "user@randmo.org"}]
+ * [{ 
+ *      suggest: "random.org", 
+ *      misspelledCount: 1, 
+ *      corrected:"user@random.org", 
+ *      original: "user@randmo.org"
+ * }]
  **/
 ```
 
@@ -158,7 +169,12 @@ const emailChecker1 = emailMisspelled({ maxMisspelled: 1, domains: top100 })
 emailChecker1("user@hotmial.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@hotmial.com"}]
+ * [{ 
+ *      suggest: "hotmail.com",  
+ *      misspelledCount: 1,  
+ *      corrected:"user@hotmail.com",  
+ *      original: "user@hotmial.com"
+ * }]
  **/
 emailChecker1("user@hotmia.com") // []
 
@@ -167,12 +183,22 @@ const emailChecker2 = emailMisspelled({ maxMisspelled: 3, domains: top100 })
 emailChecker2("user@hotmial.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com", original: "user@hotmial.com"}]
+ * [{  
+ *      suggest: "hotmail.com",  
+ *      misspelledCount: 2,  
+ *      corrected:"user@hotmail.com",  
+ *      original: "user@hotmial.com"  
+ * }]
  **/
 emailChecker2("user@hotmia.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 3, corrected:"user@hotmail.com", original: "user@hotmia.com"}]
+ * [{  
+ *      suggest: "hotmail.com",  
+ *      misspelledCount: 3,  
+ *      corrected:"user@hotmail.com",  
+ *      original: "user@hotmia.com"  
+ * }]
  **/
 emailChecker2("user@otmia.com") //4 misspelled, return []
 ```
@@ -194,7 +220,12 @@ const emailChecker1 = emailMisspelled({ lengthDiffMax: 1, domains: top100 })
 emailChecker1("user@otmail.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
+ * [{  
+ *      suggest: "hotmail.com",
+ *      misspelledCount: 1,
+ *      corrected:"user@hotmail.com",
+ *      original: "user@otmail.com"
+ * }]
  **/
 emailChecker1("user@tmail.com") // []
 
@@ -203,20 +234,88 @@ const emailChecker2 = emailMisspelled({ lengthDiffMax: 2, domains: top100 })
 emailChecker2("user@otmail.com")
 /**
  * return :
- * [{ suggest: "hotmail.com", misspelledCount: 1, corrected:"user@hotmail.com", original: "user@otmail.com"}]
+ * [{ 
+ *      suggest: "hotmail.com",
+ *      misspelledCount: 1,
+ *      corrected:"user@hotmail.com",
+ *      original: "user@otmail.com"
+ * }]
  **/
 emailChecker2("user@tmail.com")
 /**
  * return :
- * [
- *    { suggest: "gmail.com", misspelledCount: 1, corrected:"user@gmail.com", original: "user@tmail.com" }
- *    { suggest: "hotmail.com", misspelledCount: 2, corrected:"user@hotmail.com", original: "user@tmail.com"},
- * ]
+ * [{
+ *      suggest: "gmail.com",
+ *      misspelledCount: 1,
+ *      corrected:"user@gmail.com",
+ *      original: "user@tmail.com"
+ * },
+ * {
+ *      suggest: "hotmail.com",
+ *      misspelledCount: 2,
+ *      corrected:"user@hotmail.com",
+ *      original: "user@tmail.com"
+ * }]
  **/
 ```
 
 ---
 
+
+<br />
+
+<a id="types"></a>  
+
+<h2 align="center">Typescript support</h2>  
+
+You can find Types and Interfaces under the `/types` folder
+
+<a id="TDomainList"></a>  
+
+**`DomainList`**
+```ts
+    import { DomainList } from "email-misspelled/types"
+
+    string[]
+```
+
+<a id="TEmailMisspelledConstructor"></a>
+
+**`EmailMisspelledConstructor`**
+```ts
+    import { EmailMisspelledConstructor } from "email-misspelled/types"
+
+    (config: {
+        lengthDiffMax?: number;
+        maxMisspelled?: number;
+        domains: DomainList;
+    }): EmailMisspelled;
+```
+
+<a id="TEmailMisspelled"></a>
+
+**`EmailMisspelled`**
+```ts
+    import { EmailMisspelled } from "email-misspelled/types"
+
+    (email: string): Result[]
+```
+
+<a id="TResult"></a>
+
+**`Result`**
+```ts
+    import { Result } from "email-misspelled/types"
+
+    {
+        suggest: string;
+        corrected: string;
+        misspelledCount: number;
+        original: string;
+    }
+```
+
+---
 
 ### Top 100 domains list <a id="top100"></a>
 
@@ -333,6 +432,6 @@ ordered by number of existing email
 - [x] TU
 - [x] TS
 - [x] Extend default domain list
+- [x] explicit folder for types exports
 - [ ] update demo
-- [ ] explicit folder for types exports
 - [ ] allow returning only first result
