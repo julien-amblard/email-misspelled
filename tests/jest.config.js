@@ -8,6 +8,6 @@ module.exports = {
 	},
 	moduleDirectories: ["node_modules", "<rootDir>src/"],
 	moduleFileExtensions: ["js", "json", "jsx", "ts", "tsx", "node"],
-	coverageDirectory: "<rootDir>tests/coverage",
+	coverageDirectory: "<rootDir>coverage",
 	testPathIgnorePatterns: ["<rootDir>node_modules/", "<rootDir>demo/", "<rootDir>lib/", "<rootDir>src/"],
 }
