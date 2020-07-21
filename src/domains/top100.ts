@@ -1,4 +1,4 @@
-import { DomainList } from "../types"
+import { DomainList } from "../typings"
 export const top100: DomainList = [
 	"gmail.com",
 	"yahoo.com",

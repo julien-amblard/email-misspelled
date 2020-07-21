@@ -1,4 +1,4 @@
-import { DomainList } from "../types"
+import { DomainList } from "../typings"
 export const aol: DomainList = [
 	"aol.at",
 	"aol.be",

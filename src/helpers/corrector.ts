@@ -1,4 +1,4 @@
-import { Result } from "../types"
+import { Result } from "../typings"
 export interface Corrector {
 	(value: Result): Result
 }

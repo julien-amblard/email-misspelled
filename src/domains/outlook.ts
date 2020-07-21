@@ -1,4 +1,4 @@
-import { DomainList } from "../types"
+import { DomainList } from "../typings"
 export const outlook: DomainList = [
 	"outlook.com",
 	"outlook.sa",

@@ -268,13 +268,13 @@ emailChecker2("user@tmail.com")
 
 <h2 align="center">Typescript support</h2>  
 
-You can find Types and Interfaces under the `/types` folder
+You can find Types and Interfaces under the `/typings` folder
 
 <a id="TDomainList"></a>  
 
 **`DomainList`**
 ```ts
-    import { DomainList } from "email-misspelled/types"
+    import { DomainList } from "email-misspelled/typings"
 
     string[]
 ```
@@ -283,7 +283,7 @@ You can find Types and Interfaces under the `/types` folder
 
 **`EmailMisspelledConstructor`**
 ```ts
-    import { EmailMisspelledConstructor } from "email-misspelled/types"
+    import { EmailMisspelledConstructor } from "email-misspelled/typings"
 
     (config: {
         lengthDiffMax?: number;
@@ -296,7 +296,7 @@ You can find Types and Interfaces under the `/types` folder
 
 **`EmailMisspelled`**
 ```ts
-    import { EmailMisspelled } from "email-misspelled/types"
+    import { EmailMisspelled } from "email-misspelled/typings"
 
     (email: string): Result[]
 ```
@@ -305,7 +305,7 @@ You can find Types and Interfaces under the `/types` folder
 
 **`Result`**
 ```ts
-    import { Result } from "email-misspelled/types"
+    import { Result } from "email-misspelled/typings"
 
     {
         suggest: string;

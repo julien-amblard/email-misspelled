@@ -1,4 +1,4 @@
-import { DomainList } from "../types"
+import { DomainList } from "../typings"
 export const hotmail: DomainList = [
 	"hotmail.com",
 	"hotmail.com.ar",

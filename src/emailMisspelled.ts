@@ -5,7 +5,7 @@ import { lettersComparison, LettersComparison } from "lettersComparison"
 import { domainMapper } from "helpers/domainMapper"
 import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
-import { Result, EmailMisspelledConstructor } from "./types"
+import { Result, EmailMisspelledConstructor } from "./typings"
 
 const DEFAULT_LENGTH = 2
 const MAX_MISSPELLED = 2
