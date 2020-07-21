@@ -8,7 +8,7 @@
 		"test:ci": "yarn jest --config=./tests/jest.config.js",
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
-		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
+		"test:coverage:report": "codecov --token=$CODECOV_TOKEN --disable=gcov -f ./tests/coverage/lcov.info",
 		"clear": "rimraf ./lib && rimraf ./domains && rimraf ./typings",
 		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains && yarn build:types && yarn build:domains:copy && yarn build:types:copy",
 		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts",
