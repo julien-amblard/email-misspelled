@@ -26,6 +26,7 @@
 		"/lib/emailMisspelled.d.ts",
 		"/lib/emailMisspelled.node.js",
 		"/lib/domains",
+		"/lib/types",
 		"/domains",
 		"/types"
 	],
