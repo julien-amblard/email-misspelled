@@ -16,9 +16,14 @@ describe("corrector : ", () => {
 		expect(obj.corrected).toEqual("")
 		expect(obj.suggest).toEqual("")
 	})
-	test("should return default value", () => {
+	test("empty string should return default value", () => {
 		const obj = corrector("")({ suggest: "zddzdzd", corrected: "", original: "", misspelledCount: 0 })
 		expect(obj.corrected).toEqual("")
 		expect(obj.suggest).toEqual("zddzdzd")
+	})
+	test("empty suggest should return default value", () => {
+		const obj = corrector("")({ suggest: "", corrected: "", original: "", misspelledCount: 0 })
+		expect(obj.corrected).toEqual("")
+		expect(obj.suggest).toEqual("")
 	})
 })

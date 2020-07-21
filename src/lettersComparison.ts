@@ -2,13 +2,8 @@ import { Result } from "./typings"
 export interface LettersComparison {
 	(ref: Result): boolean
 }
-interface LettersComparisonConstructor {
-	(value: string, misspelledMax: number): LettersComparison
-}
 //https://github.com/trekhleb/javascript-algorithms/tree/master/src/algorithms/string/levenshtein-distance
-export const lettersComparison: LettersComparisonConstructor = (value = "", misspelledMax = 1) => (
-	ref = { suggest: "", corrected: "", original: "", misspelledCount: 0 }
-) => {
+export const lettersComparison = (value: string = "", misspelledMax: number = 1): LettersComparison => ref => {
 	const distanceMatrix = Array(value.length + 1)
 		.fill(null)
 		.map(() => Array(ref.suggest.length + 1).fill(null))
