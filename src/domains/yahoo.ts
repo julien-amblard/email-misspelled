@@ -1,4 +1,5 @@
-export const yahoo: string[] = [
+import { DomainList } from "../typings"
+export const yahoo: DomainList = [
 	"yahoo.com",
 	"yahoo.fr",
 	"yahoo.cl",

@@ -1,4 +1,5 @@
-export const more: string[] = [
+import { DomainList } from "../typings"
+export const more: DomainList = [
 	"aim.com",
 	"bellatlantic.net",
 	"citlink.net",

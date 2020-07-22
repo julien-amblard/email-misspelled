@@ -1,4 +1,5 @@
-export const aol: string[] = [
+import { DomainList } from "../typings"
+export const aol: DomainList = [
 	"aol.at",
 	"aol.be",
 	"aol.ch",

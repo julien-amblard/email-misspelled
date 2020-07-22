@@ -1,4 +1,4 @@
-import { Result } from "../emailMisspelled"
+import { Result } from "../typings"
 export interface DomainMapper {
 	(suggest: string): Result
 }

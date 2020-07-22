@@ -10,6 +10,18 @@ describe("lettersComparison config : ", () => {
 		expect(typeof checker).toEqual("function")
 	})
 	test("constructor return a function", () => {
+		const checker = lettersComparison(null, null)
+		expect(typeof checker).toEqual("function")
+	})
+	test("constructor return a function", () => {
+		const checker = lettersComparison(null)
+		expect(typeof checker).toEqual("function")
+	})
+	test("constructor return a function", () => {
+		const checker = lettersComparison()
+		expect(typeof checker).toEqual("function")
+	})
+	test("constructor return a function", () => {
 		const checker = lettersComparison("", 1)
 		expect(typeof checker).toEqual("function")
 	})

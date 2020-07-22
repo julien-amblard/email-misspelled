@@ -1,4 +1,5 @@
-export const outlook: string[] = [
+import { DomainList } from "../typings"
+export const outlook: DomainList = [
 	"outlook.com",
 	"outlook.sa",
 	"outlook.com.ar",

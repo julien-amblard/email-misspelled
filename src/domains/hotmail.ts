@@ -1,4 +1,5 @@
-export const hotmail: string[] = [
+import { DomainList } from "../typings"
+export const hotmail: DomainList = [
 	"hotmail.com",
 	"hotmail.com.ar",
 	"hotmail.com.au",

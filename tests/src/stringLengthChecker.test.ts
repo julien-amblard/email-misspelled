@@ -1,6 +1,12 @@
 import { stringLengthChecker } from "../../src/stringLengthChecker"
 
 describe("stringLengthChecker with diff of 1 : ", () => {
+	test("should return a function", () => {
+		expect(typeof stringLengthChecker("a", 1)).toBe("function")
+		expect(typeof stringLengthChecker("a")).toBe("function")
+		expect(typeof stringLengthChecker()).toBe("function")
+		expect(typeof stringLengthChecker(null, null)).toBe("function")
+	})
 	test("abcd compare efgh to should return true", () => {
 		const checker = stringLengthChecker("abcd")
 		expect(checker("efgh")).toBe(true)

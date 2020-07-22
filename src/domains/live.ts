@@ -1,4 +1,5 @@
-export const live: string[] = [
+import { DomainList } from "../typings"
+export const live: DomainList = [
 	"windowslive.com",
 	"live.com.ar",
 	"live.com.au",

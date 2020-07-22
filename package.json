@@ -9,13 +9,14 @@
 		"test:watch": "yarn jest --config=./tests/jest.config.js --verbose --watchAll",
 		"test:coverage": "yarn jest --config=./tests/jest.config.js --verbose --coverage",
 		"test:coverage:report": "codecov --token=$CODECOV_TOKEN",
-		"clear": "rimraf ./lib && rimraf ./domains",
-		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains && yarn build:types && yarn build:domains:copy",
+		"clear": "rimraf ./lib && rimraf ./domains && rimraf ./typings",
+		"build:all": "yarn clear && yarn build:webpack && yarn build:transpile && yarn build:domains && yarn build:types && yarn build:domains:copy && yarn build:types:copy",
 		"build:transpile": "babel src/index.ts --out-dir lib --extensions .ts",
 		"build:domains": "babel src/domains --out-dir lib/domains --extensions .ts",
 		"build:domains:copy": "cpy lib/domains domains",
 		"build:webpack": "webpack --config webpack.config.ts",
 		"build:types": "tsc",
+		"build:types:copy": "cpy lib/typings typings",
 		"prepublishOnly": "yarn test:ci && yarn build:all"
 	},
 	"files": [
@@ -25,7 +26,9 @@
 		"/lib/emailMisspelled.d.ts",
 		"/lib/emailMisspelled.node.js",
 		"/lib/domains",
-		"/domains"
+		"/lib/typings",
+		"/domains",
+		"/typings"
 	],
 	"repository": {
 		"type": "git",
@@ -65,7 +68,7 @@
 		"@types/webpack": "^4.41.7",
 		"babel-jest": "^26.1.0",
 		"babel-loader": "^8.0.6",
-		"codecov": "^3.7.1",
+		"codecov": "^3.7.2",
 		"cpy-cli": "^3.1.1",
 		"css-loader": "^3.2.0",
 		"html-webpack-plugin": "^4.3.0",
