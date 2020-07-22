@@ -22,6 +22,6 @@ export interface EmailMisspelledConstructor {
 		/** Number of misspelled error allowed; Default: 2 */
 		maxMisspelled?: number
 		/** List of email domain to compare */
-		domains: DomainList
+		domains: string[]
 	}): EmailMisspelled
 }
