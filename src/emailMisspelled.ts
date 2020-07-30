@@ -7,7 +7,7 @@ import { corrector, Corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
 import { Result, EmailMisspelledConstructor } from "./typings"
 
-const DEFAULT_LENGTH = 2
+const DEFAULT_LENGTH = 3
 const MAX_MISSPELLED = 2
 
 export const emailMisspelled: EmailMisspelledConstructor = (
