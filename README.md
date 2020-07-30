@@ -20,6 +20,8 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 
 ## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
 
+![example](https://raw.githubusercontent.com/sl-julienamblard/email-misspelled/v3/doc/example.gif)
+
 ## Table of Contents
 
 1. [Install](#install)
@@ -209,7 +211,7 @@ emailChecker2("user@otmia.com") //4 misspelled, return []
 
 | Type | Required | Default | Description |
 | :--- | :------- | :------ | :---------- |
-| `number` | false | `2` | max length difference between two string |
+| `number` | false | `3` | max length difference between two string |
 
 <br />
 
