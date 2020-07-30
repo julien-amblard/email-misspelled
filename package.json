@@ -53,7 +53,8 @@
 		"checker",
 		"autocorrect",
 		"lightweight",
-		"corrector"
+		"corrector",
+		"form"
 	],
 	"devDependencies": {
 		"@babel/cli": "^7.7.4",
