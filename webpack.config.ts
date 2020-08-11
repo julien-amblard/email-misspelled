@@ -36,7 +36,7 @@ const configWeb = {
 	target: "web",
 	output: {
 		path: path.resolve(__dirname, "lib"),
-		filename: "emailMisspelled.js",
+		filename: "emailMisspelled.web.js",
 		libraryTarget: "umd",
 	},
 }
@@ -45,7 +45,7 @@ const configNode = {
 	target: "node",
 	output: {
 		path: path.resolve(__dirname, "lib"),
-		filename: "emailMisspelled.node.js",
+		filename: "emailMisspelled.js",
 		libraryTarget: "umd",
 	},
 }
