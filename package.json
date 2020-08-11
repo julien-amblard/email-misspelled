@@ -24,7 +24,7 @@
 		"/lib/index.d.ts",
 		"/lib/emailMisspelled.js",
 		"/lib/emailMisspelled.d.ts",
-		"/lib/emailMisspelled.node.js",
+		"/lib/emailMisspelled.web.js",
 		"/lib/domains",
 		"/lib/typings",
 		"/domains",
