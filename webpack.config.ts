@@ -46,7 +46,7 @@ const configNode = {
 	output: {
 		path: path.resolve(__dirname, "lib"),
 		filename: "emailMisspelled.js",
-		libraryTarget: "umd",
+		libraryTarget: "commonjs",
 	},
 }
 module.exports = [configWeb, configNode]
