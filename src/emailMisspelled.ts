@@ -1,42 +1,49 @@
 import { containsOneAt } from "helpers/containsOneAt"
 import { getDomain } from "helpers/getDomain"
-import { stringLengthChecker, StringLengthChecker } from "stringLengthChecker"
-import { lettersComparison, LettersComparison } from "lettersComparison"
+import { stringLengthChecker } from "stringLengthChecker"
+import { lettersComparison } from "lettersComparison"
 import { domainMapper } from "helpers/domainMapper"
-import { corrector, Corrector } from "helpers/corrector"
+import { corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
-import { Result, EmailMisspelledConstructor } from "./typings"
+import { EmailMisspelledConstructor } from "./typings"
 
 const DEFAULT_LENGTH = 3
 const MAX_MISSPELLED = 2
+const DEFAULT_PARAMS = {
+	lengthDiffMax: DEFAULT_LENGTH,
+	maxMisspelled: MAX_MISSPELLED,
+	domains: [],
+}
+const DEFAULT_RETURN = []
 
-export const emailMisspelled: EmailMisspelledConstructor = (
-	{ lengthDiffMax = DEFAULT_LENGTH, maxMisspelled = MAX_MISSPELLED, domains } = {
-		lengthDiffMax: DEFAULT_LENGTH,
-		maxMisspelled: MAX_MISSPELLED,
-		domains: [],
-	}
-) => {
-	if (!!!domains || !Array.isArray(domains) || !!!domains.length) throw new Error("Please provide a domain list")
+export const emailMisspelled: EmailMisspelledConstructor = ({
+	lengthDiffMax = DEFAULT_LENGTH,
+	maxMisspelled = MAX_MISSPELLED,
+	domains = [],
+} = DEFAULT_PARAMS) => {
+	if (!!!domains || !Array.isArray(domains) || !!!domains.length)
+		throw new Error(
+			"Please provide a domain list (for example: https://github.com/sl-julienamblard/email-misspelled/tree/master/src/domains)"
+		)
 
 	return email => {
-		if (!containsOneAt(email)) return []
+		if (!!!email || !containsOneAt(email)) return DEFAULT_RETURN
 
-		const domain: string = getDomain(email)
-		if (domains.includes(domain)) return []
+		const domain = getDomain(email)
+		if (domains.includes(domain)) return DEFAULT_RETURN
 
-		const sizeFilter: StringLengthChecker = stringLengthChecker(domain, lengthDiffMax)
-		const letterFilter: LettersComparison = lettersComparison(domain, maxMisspelled)
-		const correctorMapper: Corrector = corrector(email)
+		const sizeFilter = stringLengthChecker(domain, lengthDiffMax)
+		const letterFilter = lettersComparison(domain, maxMisspelled)
+		const correctorMapper = corrector(email)
 
-		const remainsDomains: Result[] = domains
+		const remainsDomains = domains
 			.filter(sizeFilter)
 			.map(domainMapper)
 			.filter(letterFilter)
 			.map(correctorMapper)
 			.sort(sortByCount)
 
-		return !!remainsDomains.length ? remainsDomains : []
+		return remainsDomains
 	}
 }
 export default emailMisspelled
