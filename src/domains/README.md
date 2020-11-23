@@ -1,4 +1,4 @@
-# Domains list  
+# Domains lists  
 
 The email will be compare to a list of domains.  
 You can use one of the domain lists this package or send un custom one.  
