@@ -153,5 +153,5 @@ workflows:
             - publish:
                   context: personal_packages_vars
                   requires:
-                      - tests
+                      - require-publish
                   <<: *prod_tag_filter
