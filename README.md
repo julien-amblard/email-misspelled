@@ -53,7 +53,7 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 <h2 align="center">Usages</h2>
 
 
-```js
+```ts
 import emailMisspelled, { top100 } from "email-misspelled"
 
 const emailChecker = emailMisspelled({ domains: top100 })
@@ -99,7 +99,7 @@ Result = {
 
 <br />
 
-```js
+```ts
 import emailMisspelled from "email-misspelled"
 const emailChecker = emailMisspelled({ domains: ["random.org"] })
 
@@ -121,31 +121,33 @@ emailChecker("user@randmo.org")
 List of domains avaibles :  
 
 - [Top 100 domains list](#top100)
-- [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
-- [Live](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/live.ts)
-- [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/outlook.ts)
-- [Microsoft (a combination of hotmail, live and outlook emails](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/microsoft.ts)
-- [Yahoo](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/yahoo.ts)
-- [Aol](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/aol.ts)
-- [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/more.ts)
-- [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/all.ts)
+- [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/hotmail.ts)
+- [Live](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/live.ts)
+- [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/outlook.ts)
+- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/microsoft.ts)
+- [Yahoo](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/yahoo.ts)
+- [Aol](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/aol.ts)
+- [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/more.ts)
+- [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/all.ts)
+
+[More details here](/sl-julienamblard/email-misspelled/tree/master/src/domains)
 
 **examples**
 
-```js  
+```ts  
 import { top100, hotmail, live } from "email-misspelled"  
 ```  
 
 **or**  
 
-```js  
+```ts  
 import { top100, hotmail, live } from "email-misspelled/domains"  
 //etc  
 ```  
 
 **or**  
 
-```js  
+```ts  
 import top100 from "email-misspelled/domains/popular"  
 import hotmail from "email-misspelled/domains/hotmail"  
 import live from "email-misspelled/domains/live"  
@@ -164,7 +166,7 @@ Feel free to contribute
 
 <br />
 
-```js
+```ts
 import emailMisspelled, { top100 } from "email-misspelled"
 const emailChecker1 = emailMisspelled({ maxMisspelled: 1, domains: top100 })
 
@@ -215,7 +217,7 @@ emailChecker2("user@otmia.com") //4 misspelled, return []
 
 <br />
 
-```js
+```ts
 import emailMisspelled, { top100 } from "email-misspelled"
 const emailChecker1 = emailMisspelled({ lengthDiffMax: 1, domains: top100 })
 
