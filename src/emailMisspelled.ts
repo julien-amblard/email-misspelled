@@ -1,9 +1,9 @@
 import { containsOneAt } from "helpers/containsOneAt"
 import { getDomain } from "helpers/getDomain"
-import { stringLengthChecker, StringLengthChecker } from "stringLengthChecker"
-import { lettersComparison, LettersComparison } from "lettersComparison"
+import { stringLengthChecker } from "stringLengthChecker"
+import { lettersComparison } from "lettersComparison"
 import { domainMapper } from "helpers/domainMapper"
-import { corrector, Corrector } from "helpers/corrector"
+import { corrector } from "helpers/corrector"
 import { sortByCount } from "helpers/sort"
 import { Result, EmailMisspelledConstructor } from "./typings"
 
@@ -17,7 +17,10 @@ export const emailMisspelled: EmailMisspelledConstructor = (
 		domains: [],
 	}
 ) => {
-	if (!!!domains || !Array.isArray(domains) || !!!domains.length) throw new Error("Please provide a domain list")
+	if (!!!domains || !Array.isArray(domains) || !!!domains.length)
+		throw new Error(
+			"Please provide a domain list (https://github.com/sl-julienamblard/email-misspelled/tree/master/src/domains)"
+		)
 
 	return email => {
 		if (!containsOneAt(email)) return []
@@ -25,9 +28,9 @@ export const emailMisspelled: EmailMisspelledConstructor = (
 		const domain: string = getDomain(email)
 		if (domains.includes(domain)) return []
 
-		const sizeFilter: StringLengthChecker = stringLengthChecker(domain, lengthDiffMax)
-		const letterFilter: LettersComparison = lettersComparison(domain, maxMisspelled)
-		const correctorMapper: Corrector = corrector(email)
+		const sizeFilter = stringLengthChecker(domain, lengthDiffMax)
+		const letterFilter = lettersComparison(domain, maxMisspelled)
+		const correctorMapper = corrector(email)
 
 		const remainsDomains: Result[] = domains
 			.filter(sizeFilter)
@@ -36,7 +39,7 @@ export const emailMisspelled: EmailMisspelledConstructor = (
 			.map(correctorMapper)
 			.sort(sortByCount)
 
-		return !!remainsDomains.length ? remainsDomains : []
+		return remainsDomains
 	}
 }
 export default emailMisspelled
