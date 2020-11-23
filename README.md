@@ -130,7 +130,7 @@ List of domains avaibles :
 - [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/more.ts)
 - [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/all.ts)
 
-[More details here](/sl-julienamblard/email-misspelled/tree/master/src/domains)
+[More details here](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/)
 
 **examples**
 
