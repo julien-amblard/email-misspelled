@@ -149,7 +149,7 @@ workflows:
                   type: approval
                   requires:
                       - tests
-                  <<: *canary_tag_filter
+                  <<: *prod_tag_filter
             - publish:
                   context: personal_packages_vars
                   requires:
