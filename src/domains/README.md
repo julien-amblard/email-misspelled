@@ -102,7 +102,9 @@ A combinaison of all email listed above
 Obviously you can make your own conbinaison of emails  
 
 ```ts
-import { hotmail, yahoo } from "email-misspelled"
+import emailMisspelled, { hotmail, yahoo } from "email-misspelled"
 
 const customDomains = [...hotmail, ...yahoo]
+
+const checker = emailMisspelled({ domains: customDomains })
 ```  
