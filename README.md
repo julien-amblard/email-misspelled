@@ -7,7 +7,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/sl-julienamblard/email-misspelled?logo=codecov&style=flat-square)](https://codecov.io/gh/sl-julienamblard/email-misspelled)
 [![npm](https://img.shields.io/bundlephobia/minzip/email-misspelled?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/sl-julienamblard/email-misspelled/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/LICENSE)
 
 </div>  
 
@@ -121,16 +121,16 @@ emailChecker("user@randmo.org")
 List of domains avaibles :  
 
 - [Top 100 domains list](#top100)
-- [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/hotmail.ts)
-- [Live](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/live.ts)
-- [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/outlook.ts)
-- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/microsoft.ts)
-- [Yahoo](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/yahoo.ts)
-- [Aol](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/aol.ts)
-- [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/more.ts)
-- [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/all.ts)
+- [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
+- [Live](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/live.ts)
+- [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/outlook.ts)
+- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/microsoft.ts)
+- [Yahoo](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/yahoo.ts)
+- [Aol](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/aol.ts)
+- [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/more.ts)
+- [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/all.ts)
 
-[More details here](https://github.com/sl-julienamblard/email-misspelled/blob/master/src/domains/)
+[More details here](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/)
 
 **examples**
 
