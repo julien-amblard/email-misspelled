@@ -3,11 +3,11 @@
 <div align="center">  
 
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![CircleCI Status](https://img.shields.io/circleci/build/github/sl-julienamblard/email-misspelled/master?style=flat-square)](https://circleci.com/gh/sl-julienamblard/email-misspelled)
-[![codecov](https://img.shields.io/codecov/c/github/sl-julienamblard/email-misspelled?logo=codecov&style=flat-square)](https://codecov.io/gh/sl-julienamblard/email-misspelled)
+[![CircleCI Status](https://img.shields.io/circleci/build/github/julien-amblard/email-misspelled/master?style=flat-square)](https://circleci.com/gh/julien-amblard/email-misspelled)
+[![codecov](https://img.shields.io/codecov/c/github/julien-amblard/email-misspelled?logo=codecov&style=flat-square)](https://codecov.io/gh/julien-amblard/email-misspelled)
 [![npm](https://img.shields.io/bundlephobia/minzip/email-misspelled?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/LICENSE)
+[![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/julien-amblard/email-misspelled/blob/v3/LICENSE)
 
 </div>  
 
@@ -20,7 +20,7 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 
 ## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
 
-![example](https://raw.githubusercontent.com/sl-julienamblard/email-misspelled/v3/doc/example.gif)
+![example](https://raw.githubusercontent.com/julien-amblard/email-misspelled/v3/doc/example.gif)
 
 ## Table of Contents
 
@@ -121,16 +121,16 @@ emailChecker("user@randmo.org")
 List of domains avaibles :  
 
 - [Top 100 domains list](#top100)
-- [Hotmail](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
-- [Live](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/live.ts)
-- [Outlook](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/outlook.ts)
-- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/microsoft.ts)
-- [Yahoo](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/yahoo.ts)
-- [Aol](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/aol.ts)
-- [Others domains](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/more.ts)
-- [All (all previous domains in one list)](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/all.ts)
+- [Hotmail](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
+- [Live](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/live.ts)
+- [Outlook](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/outlook.ts)
+- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/microsoft.ts)
+- [Yahoo](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/yahoo.ts)
+- [Aol](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/aol.ts)
+- [Others domains](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/more.ts)
+- [All (all previous domains in one list)](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/all.ts)
 
-[More details here](https://github.com/sl-julienamblard/email-misspelled/blob/v3/src/domains/)
+[More details here](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/)
 
 **examples**
 
