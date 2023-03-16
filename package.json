@@ -32,18 +32,18 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/sl-julienamblard/email-misspelled.git"
+		"url": "git+https://github.com/julien-amblard/email-misspelled.git"
 	},
 	"author": {
 		"name": "Julien Amblard",
 		"email": "amblard.julien@gmail.com",
-		"url": "https://github.com/sl-julienamblard"
+		"url": "https://github.com/julien-amblard"
 	},
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/sl-julienamblard/email-misspelled/issues"
+		"url": "https://github.com/julien-amblard/email-misspelled/issues"
 	},
-	"homepage": "https://github.com/sl-julienamblard/email-misspelled#readme",
+	"homepage": "https://github.com/julien-amblard/email-misspelled#readme",
 	"keywords": [
 		"email",
 		"domain",
