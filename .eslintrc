@@ -109,7 +109,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.test.*", "**/*.datamock.*"],
+      "files": ["**/*.test.*"],
       "rules": {
         "func-names": "off",
         "no-unused-expressions": "off",
