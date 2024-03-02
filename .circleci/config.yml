@@ -94,7 +94,7 @@ jobs:
       - *print_informations
       - run:
           name: Publish package
-          command: npm publish --access public --tag canary
+          command: npm publish --access public --tag alpha
       - *persist
 
   publish:
