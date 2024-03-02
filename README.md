@@ -20,7 +20,7 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 
 ## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
 
-![example](https://raw.githubusercontent.com/julien-amblard/email-misspelled/v3/doc/example.gif)
+![example](https://raw.githubusercontent.com/julien-amblard/email-misspelled/master/doc/example.gif)
 
 ## Table of Contents
 
@@ -30,7 +30,6 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
     - [**domains**](#domains)
     - [**maxMisspelled**](#maxMisspelled)
     - [**lengthDiffMax**](#lengthDiffMax)
-4. [Typescript support](#types)
 
 <a id="install"></a>
 
@@ -39,7 +38,7 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 *Install with npm:*
 
 ```bash
-    npm i email-misspelled --save
+    npm i email-misspelled
 ```
 
 *Install with yarn:*
@@ -69,22 +68,7 @@ emailChecker("user@otmail.com")
  **/
 ```
 
-<br />
 
-**Returned object model**  
-[Result](#TResult)
-```ts
-Result = {
-    /** suggested domain */  
-    suggest: string  
-    /** corrected email */  
-    corrected: string  
-    /** number correction needed */  
-    misspelledCount: number  
-    /** original email */  
-    original: string  
-}[]
-```
 <br />
 
 <a id="options"></a>
@@ -107,12 +91,14 @@ emailChecker("user@hotmial.com") // []
 emailChecker("user@randmo.org")
 /**
  * return :
- * [{ 
+ * [
+ *   { 
  *      suggest: "random.org", 
  *      misspelledCount: 1, 
  *      corrected:"user@random.org", 
  *      original: "user@randmo.org"
- * }]
+ *   }
+ * ]
  **/
 ```
 
@@ -121,37 +107,21 @@ emailChecker("user@randmo.org")
 List of domains avaibles :  
 
 - [Top 100 domains list](#top100)
-- [Hotmail](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/hotmail.ts)
-- [Live](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/live.ts)
-- [Outlook](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/outlook.ts)
-- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/microsoft.ts)
-- [Yahoo](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/yahoo.ts)
-- [Aol](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/aol.ts)
-- [Others domains](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/more.ts)
-- [All (all previous domains in one list)](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/all.ts)
+- [Hotmail](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/hotmail.ts)
+- [Live](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/live.ts)
+- [Outlook](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/outlook.ts)
+- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/microsoft.ts)
+- [Yahoo](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/yahoo.ts)
+- [Aol](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/aol.ts)
+- [Others domains](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/more.ts)
+- [All (all previous domains in one list)](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/all.ts)
 
-[More details here](https://github.com/julien-amblard/email-misspelled/blob/v3/src/domains/)
+[More details here](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/)
 
 **examples**
 
 ```ts  
 import { top100, hotmail, live } from "email-misspelled"  
-```  
-
-**or**  
-
-```ts  
-import { top100, hotmail, live } from "email-misspelled/domains"  
-//etc  
-```  
-
-**or**  
-
-```ts  
-import top100 from "email-misspelled/domains/popular"  
-import hotmail from "email-misspelled/domains/hotmail"  
-import live from "email-misspelled/domains/live"  
-//etc  
 ```  
 
 Feel free to contribute  
@@ -266,61 +236,6 @@ emailChecker2("user@tmail.com")
 ---
 
 
-<br />
-
-<a id="types"></a>  
-
-<h2 align="center">Typescript support</h2>  
-
-You can find Types and Interfaces under the `/typings` folder
-
-<a id="TDomainList"></a>  
-
-**`DomainList`**
-```ts
-    import { DomainList } from "email-misspelled/typings"
-
-    string[]
-```
-
-<a id="TEmailMisspelledConstructor"></a>
-
-**`EmailMisspelledConstructor`**
-```ts
-    import { EmailMisspelledConstructor } from "email-misspelled/typings"
-
-    (config: {
-        lengthDiffMax?: number;
-        maxMisspelled?: number;
-        domains: DomainList;
-    }): EmailMisspelled;
-```
-
-<a id="TEmailMisspelled"></a>
-
-**`EmailMisspelled`**
-```ts
-    import { EmailMisspelled } from "email-misspelled/typings"
-
-    (email: string): Result[]
-```
-
-<a id="TResult"></a>
-
-**`Result`**
-```ts
-    import { Result } from "email-misspelled/typings"
-
-    {
-        suggest: string;
-        corrected: string;
-        misspelledCount: number;
-        original: string;
-    }
-```
-
----
-
 ### Top 100 domains list <a id="top100"></a>
 
 ordered by number of existing email
@@ -428,14 +343,3 @@ ordered by number of existing email
 
 ---
 
-## TODO
-
-- [x] external domain list
-- [x] split domain list into smallest part (only hotmail, only gmail etc)
-- [x] Doc
-- [x] TU
-- [x] TS
-- [x] Extend default domain list
-- [x] explicit folder for types exports
-- [ ] update demo
-- [ ] allow returning only first result

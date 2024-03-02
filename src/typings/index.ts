@@ -1,6 +1,6 @@
 export type DomainList = string[]
 
-export interface Result {
+export type Result = {
 	/** Suggested domain */
 	suggest: string
 	/** Corrected email */
@@ -15,7 +15,7 @@ export interface EmailMisspelled {
 	(email: string): Result[]
 }
 
-export interface EmailMisspelledConfig {
+export type EmailMisspelledConfig = {
 	/** Maximum length difference between strings; Default: 2 */
 	lengthDiffMax?: number
 	/** Number of misspelled error allowed; Default: 2 */

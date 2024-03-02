@@ -1,0 +1,125 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "eslint-config-prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": ["import", "unicorn"],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["tsconfig.json"]
+      },
+      "node": {
+        "paths": ["src"],
+        "extensions": [".js", ".ts"]
+      }
+    }
+  },
+  "rules": {
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "no-alert": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { "ignoreRestSiblings": true }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        "prefer": "type-imports",
+        "fixStyle": "separate-type-imports"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      { "selector": "enum", "format": ["UPPER_CASE"] }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "kebabCase"
+      }
+    ],
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": "error",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-default-export": "error",
+    "import/no-cycle": "error",
+    "import/no-duplicates": "error",
+    "import/no-empty-named-blocks": "error",
+    "import/no-mutable-exports": "error",
+    "import/no-named-as-default": "error",
+    "import/no-named-as-default-member": "error",
+    "import/no-self-import": "error",
+    "eol-last": ["error"],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+    "import/no-useless-path-segments": [
+      "error",
+      {
+        "noUselessIndex": true,
+        "commonjs": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          ["builtin", "external"],
+          "internal",
+          "unknown",
+          "parent",
+          ["sibling", "index"]
+        ]
+      }
+    ],
+    // Code Quality
+    "array-callback-return": 2,
+    "complexity": [2, 5],
+    "eqeqeq": 2,
+    "max-statements": [2, 10],
+    "max-statements-per-line": [
+      2,
+      {
+        "max": 1
+      }
+    ],
+    "max-nested-callbacks": [2, 2],
+    "max-depth": [
+      2,
+      {
+        "max": 2
+      }
+    ],
+    "max-lines": [
+      "warn",
+      {
+        "max": 90
+      }
+    ],
+    "no-eval": 2,
+    "no-return-assign": 2,
+    "no-param-reassign": 2,
+    "no-var": 2,
+    "prefer-const": 2
+  },
+  "overrides": [
+    {
+      "files": ["**/*.test.*", "**/*.datamock.*"],
+      "rules": {
+        "func-names": "off",
+        "no-unused-expressions": "off",
+        "max-statements": "off",
+        "max-nested-callbacks": "off",
+        "max-lines": "off",
+        "no-console": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-param-reassign": "off"
+      }
+    }
+  ]
+}
