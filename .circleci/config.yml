@@ -1,157 +1,148 @@
 version: 2.1
 
 aliases:
-    - &defaults
-      working_directory: ~/repos
-      docker:
-          - image: circleci/node:12.21.0
+  - &defaults
+    working_directory: ~/repos
+    docker:
+      - image: circleci/node:20.10.0
 
-    - &test_tag_filter
-      filters:
-          tags:
-              ignore: /.*/
+  - &test_tag_filter
+    filters:
+      tags:
+        ignore: /.*/
 
-    - &canary_tag_filter
-      filters:
-          tags:
-              only: /^v[\d\.]+-(canary|alpha|beta)\.\d$/
-          branches:
-              ignore: /.*/
+  - &canary_tag_filter
+    filters:
+      tags:
+        only: /^v[\d\.]+-(canary|alpha|beta)\.\d$/
+      branches:
+        ignore: /.*/
 
-    - &prod_tag_filter
-      filters:
-          tags:
-              only: /^v[\d\.]+$/
-          branches:
-              ignore: /.*/
+  - &prod_tag_filter
+    filters:
+      tags:
+        only: /^v[\d\.]+$/
+      branches:
+        ignore: /.*/
 
-    - &attach
-      attach_workspace:
-          at: ~/repos
-    - &auth_registry
-      run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repos/.npmrc
-    - &save_package_informations
-      run:
-          name: Save package informations
-          command: |
-              echo 'export CURRENT_PACKAGE_VERSION=$(git describe --tags)' >> $BASH_ENV
-              echo 'export CURRENT_PACKAGE_NAME=$(jq ".name" ~/repos/package.json -r)' >> $BASH_ENV
-    - &versioning_package
-      run:
-          name: Versioning package
-          command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
-    - &print_informations
-      run:
-          name: Print package informations
-          command: echo $CURRENT_PACKAGE_NAME@$CURRENT_PACKAGE_VERSION
-    - &persist
-      persist_to_workspace:
-          root: ~/repos
-          paths:
-              - .
+  - &attach
+    attach_workspace:
+      at: ~/repos
+  - &auth_registry
+    run:
+      name: Authenticate with registry
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repos/.npmrc
+  - &save_package_informations
+    run:
+      name: Save package informations
+      command: |
+        echo 'export CURRENT_PACKAGE_VERSION=$(git describe --tags)' >> $BASH_ENV
+        echo 'export CURRENT_PACKAGE_NAME=$(jq ".name" ~/repos/package.json -r)' >> $BASH_ENV
+  - &versioning_package
+    run:
+      name: Versioning package
+      command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
+  - &print_informations
+    run:
+      name: Print package informations
+      command: echo $CURRENT_PACKAGE_NAME@$CURRENT_PACKAGE_VERSION
+  - &persist
+    persist_to_workspace:
+      root: ~/repos
+      paths:
+        - .
 
 jobs:
-    tests:
-        <<: *defaults
-        steps:
-            - checkout
-            - restore_cache:
-                  keys:
-                      - v1-dependencies-{{ checksum "package.json" }}
-                      - v1-dependencies-
-            - run:
-                  name: Install dependencies
-                  command: yarn install --no-lockfile
-            - run:
-                  name: Run tests
-                  command: yarn test:ci
-            - run:
-                  name: Build coverage
-                  command: npm run test:coverage
-            - store_artifacts:
-                  path: tests/coverage/lcov-report
-            - run:
-                  name: Report coverage
-                  command: npm run test:coverage:report
-            - run:
-                  name: Run build:webpack
-                  command: yarn build:webpack
-            - run:
-                  name: Run build:transpile
-                  command: yarn build:transpile
-            - run:
-                  name: Run build:domains
-                  command: yarn build:domains
-            - run:
-                  name: Run build:types
-                  command: yarn build:types
-            - save_cache:
-                  paths:
-                      - node_modules
-                  key: v1-dependencies-{{ checksum "package.json" }}
-            - *persist
+  tests:
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: Run tests
+          command: npm run test:ci
+      - run:
+          name: Build coverage
+          command: npm run test:coverage
+      - store_artifacts:
+          path: tests/coverage/lcov-report
+      - run:
+          name: Report coverage
+          command: npm run test:coverage:report
+      - run:
+          name: Run build
+          command: npm run build
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - *persist
 
-    publish-canary:
-        <<: *defaults
-        steps:
-            - *attach
-            - *auth_registry
-            - *save_package_informations
-            - *versioning_package
-            - *print_informations
-            - run:
-                  name: Publish package
-                  command: npm publish --access public --tag canary
-            - *persist
+  publish-canary:
+    <<: *defaults
+    steps:
+      - *attach
+      - *auth_registry
+      - *save_package_informations
+      - *versioning_package
+      - *print_informations
+      - run:
+          name: Publish package
+          command: npm publish --access public --tag canary
+      - *persist
 
-    publish:
-        <<: *defaults
-        steps:
-            - *attach
-            - *auth_registry
-            - *save_package_informations
-            - *versioning_package
-            - *print_informations
-            - run:
-                  name: Publish package
-                  command: npm publish --access public
-            - *persist
+  publish:
+    <<: *defaults
+    steps:
+      - *attach
+      - *auth_registry
+      - *save_package_informations
+      - *versioning_package
+      - *print_informations
+      - run:
+          name: Publish package
+          command: npm publish --access public
+      - *persist
 
 workflows:
-    version: 2
-    tests:
-        jobs:
-            - tests:
-                  <<: *test_tag_filter
+  version: 2
+  tests:
+    jobs:
+      - tests:
+          <<: *test_tag_filter
 
-    test-publish-canary:
-        jobs:
-            - tests:
-                  <<: *canary_tag_filter
-            - require-publish:
-                  type: approval
-                  requires:
-                      - tests
-                  <<: *canary_tag_filter
-            - publish-canary:
-                  context: personal_packages_vars
-                  requires:
-                      - require-publish
-                  <<: *canary_tag_filter
+  test-publish-canary:
+    jobs:
+      - tests:
+          <<: *canary_tag_filter
+      - require-publish:
+          type: approval
+          requires:
+            - tests
+          <<: *canary_tag_filter
+      - publish-canary:
+          context: personal_packages_vars
+          requires:
+            - require-publish
+          <<: *canary_tag_filter
 
-    test-publish:
-        jobs:
-            - tests:
-                  <<: *prod_tag_filter
-            - require-publish:
-                  type: approval
-                  requires:
-                      - tests
-                  <<: *prod_tag_filter
-            - publish:
-                  context: personal_packages_vars
-                  requires:
-                      - require-publish
-                  <<: *prod_tag_filter
+  test-publish:
+    jobs:
+      - tests:
+          <<: *prod_tag_filter
+      - require-publish:
+          type: approval
+          requires:
+            - tests
+          <<: *prod_tag_filter
+      - publish:
+          context: personal_packages_vars
+          requires:
+            - require-publish
+          <<: *prod_tag_filter
