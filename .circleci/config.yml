@@ -53,7 +53,7 @@ aliases:
         - .
 
 jobs:
-  test:
+  test-build:
     <<: *defaults
     steps:
       - checkout
@@ -113,17 +113,17 @@ jobs:
 workflows:
   tests:
     jobs:
-      - test:
+      - test-build:
           <<: *test_tag_filter
 
   test-publish-canary:
     jobs:
-      - test:
+      - test-build:
           <<: *canary_tag_filter
       - require-publish:
           type: approval
           requires:
-            - tests
+            - test-build
           <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
@@ -133,12 +133,12 @@ workflows:
 
   test-publish:
     jobs:
-      - test:
+      - test-build:
           <<: *prod_tag_filter
       - require-publish:
           type: approval
           requires:
-            - tests
+            - test-build
           <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars
