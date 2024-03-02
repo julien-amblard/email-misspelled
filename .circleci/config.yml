@@ -63,7 +63,7 @@ jobs:
             - v1-dependencies-
       - run:
           name: Install dependencies
-          command: npm ci
+          command: npm ci --prefer-offline --ignore-scripts --no-audit --no-fund
       - run:
           name: Run tests
           command: npm run test:ci
