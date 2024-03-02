@@ -9,9 +9,6 @@
   ],
   "plugins": ["import", "unicorn"],
   "settings": {
-    "react": {
-      "version": "detect"
-    },
     "import/resolver": {
       "typescript": {
         "project": ["tsconfig.json"]

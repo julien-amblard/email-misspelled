@@ -4,7 +4,7 @@ aliases:
   - &defaults
     working_directory: ~/repos
     docker:
-      - image: circleci/node:20.10.0
+      - image: circleci/node:20.11.1
 
   - &test_tag_filter
     filters:
