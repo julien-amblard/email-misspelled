@@ -32,9 +32,9 @@ aliases:
     run:
       name: Authenticate with registry
       command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repos/.npmrc
-  - &save_package_informations
+  - &save_package_information
     run:
-      name: Save package informations
+      name: Save package information
       command: |
         echo 'export CURRENT_PACKAGE_VERSION=$(git describe --tags)' >> $BASH_ENV
         echo 'export CURRENT_PACKAGE_NAME=$(jq ".name" ~/repos/package.json -r)' >> $BASH_ENV
@@ -42,9 +42,9 @@ aliases:
     run:
       name: Versioning package
       command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
-  - &print_informations
+  - &print_information
     run:
-      name: Print package informations
+      name: Print package information
       command: echo $CURRENT_PACKAGE_NAME@$CURRENT_PACKAGE_VERSION
   - &persist
     persist_to_workspace:
@@ -68,7 +68,7 @@ jobs:
           name: Run tests
           command: npm run test:ci
       - run:
-          name: Build coverage
+          name: Run test coverage
           command: npm run test:coverage
       - store_artifacts:
           path: tests/coverage/lcov-report
@@ -89,9 +89,9 @@ jobs:
     steps:
       - *attach
       - *auth_registry
-      - *save_package_informations
+      - *save_package_information
       - *versioning_package
-      - *print_informations
+      - *print_information
       - run:
           name: Publish package
           command: npm publish --access public --tag alpha
@@ -102,9 +102,9 @@ jobs:
     steps:
       - *attach
       - *auth_registry
-      - *save_package_informations
+      - *save_package_information
       - *versioning_package
-      - *print_informations
+      - *print_information
       - run:
           name: Publish package
           command: npm publish --access public

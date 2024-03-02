@@ -4,8 +4,9 @@
   "description": "Check misspell email's domain and return a list of matching domain suggestions",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
     }
   },
   "scripts": {
@@ -14,8 +15,9 @@
     "test:coverage": "vitest run --coverage",
     "test:coverage:report": "codecov --token=$CODECOV_TOKEN",
     "clear": "rimraf ./dist",
-    "build": "npm run clear && npm run transpile",
-    "transpile": "tsc --project ./tsconfig.build.json",
+    "build": "npm run clear && npm run transpile:esm && npm run transpile:cjs",
+    "transpile:esm": "tsc --project ./tsconfig.esm.json",
+    "transpile:cjs": "tsc --project ./tsconfig.cjs.json",
     "prepublishOnly": "npm run test:ci && npm run build",
     "prepare": "husky",
     "lint:staged": "lint-staged -- --allow-empty",
