@@ -4,7 +4,7 @@ aliases:
   - &defaults
     working_directory: ~/repos
     docker:
-      - image: circleci/node:20.11.1
+      - image: cimg/node:20.11.1
 
   - &test_tag_filter
     filters:
@@ -53,7 +53,7 @@ aliases:
         - .
 
 jobs:
-  tests:
+  test:
     <<: *defaults
     steps:
       - checkout
@@ -111,15 +111,14 @@ jobs:
       - *persist
 
 workflows:
-  version: 2
   tests:
     jobs:
-      - tests:
+      - test:
           <<: *test_tag_filter
 
   test-publish-canary:
     jobs:
-      - tests:
+      - test:
           <<: *canary_tag_filter
       - require-publish:
           type: approval
@@ -134,7 +133,7 @@ workflows:
 
   test-publish:
     jobs:
-      - tests:
+      - test:
           <<: *prod_tag_filter
       - require-publish:
           type: approval
