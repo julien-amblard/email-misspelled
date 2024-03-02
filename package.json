@@ -1,8 +1,13 @@
 {
   "name": "email-misspelled",
+  "type": "module",
   "description": "Check misspell email's domain and return a list of matching domain suggestions",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "test": "vitest",
     "test:ci": "vitest run",
@@ -10,7 +15,7 @@
     "test:coverage:report": "codecov --token=$CODECOV_TOKEN",
     "clear": "rimraf ./dist",
     "build": "npm run clear && npm run transpile",
-    "transpile": "tsc --project ./tsconfig.json",
+    "transpile": "tsc --project ./tsconfig.build.json",
     "prepublishOnly": "npm run test:ci && npm run build",
     "prepare": "husky",
     "lint:staged": "lint-staged -- --allow-empty",
