@@ -57,10 +57,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
       - run:
           name: Install dependencies
           command: npm ci --prefer-offline --ignore-scripts --no-audit --no-fund
