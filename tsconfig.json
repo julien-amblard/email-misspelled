@@ -1,18 +1,23 @@
 {
-	"compilerOptions": {
-		"baseUrl": "./src",
-		"downlevelIteration": true,
-		"strict": false,
-		"outDir": "./lib",
-		"lib": ["ESNext"],
-		"declaration": true,
-		"emitDeclarationOnly": true,
-		"isolatedModules": true,
-		"forceConsistentCasingInFileNames": true,
-		"moduleResolution": "node",
-		"noUnusedLocals": true,
-		"noUnusedParameters": true
-	},
-	"typeRoots": ["node_modules/@types"],
-	"include": ["src"]
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "./lib",
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+    "declaration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": false,
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "types": ["vitest/globals"]
+  },
+  "include": ["./src", "__tests__"]
 }
