@@ -120,28 +120,18 @@ workflows:
     jobs:
       - test-build:
           <<: *canary_tag_filter
-      - require-publish:
-          type: approval
-          requires:
-            - test-build
-          <<: *canary_tag_filter
       - publish-canary:
           context: personal_packages_vars
           requires:
-            - require-publish
+            - test-build
           <<: *canary_tag_filter
 
   test-publish:
     jobs:
       - test-build:
           <<: *prod_tag_filter
-      - require-publish:
-          type: approval
-          requires:
-            - test-build
-          <<: *prod_tag_filter
       - publish:
           context: personal_packages_vars
           requires:
-            - require-publish
+            - test-build
           <<: *prod_tag_filter
