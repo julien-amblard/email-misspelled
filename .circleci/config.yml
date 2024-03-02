@@ -57,6 +57,10 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       - run:
           name: Install dependencies
           command: npm ci --prefer-offline --ignore-scripts --no-audit --no-fund
@@ -74,6 +78,10 @@ jobs:
       - run:
           name: Run build
           command: npm run build
+      - save_cache:
+          paths:
+            - /node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - *persist
 
   publish-canary:
