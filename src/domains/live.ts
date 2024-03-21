@@ -1,4 +1,4 @@
-import type { DomainList } from "../typings"
+import type { DomainList } from "../typings/index.js"
 
 export const live: DomainList = [
   "windowslive.com",

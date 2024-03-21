@@ -1,11 +1,11 @@
-import { containsOneAt } from "./helpers/contains-one-at"
-import { getDomain } from "./helpers/get-domain"
-import { stringLengthChecker } from "./string-length-checker"
-import { lettersComparison } from "./letters-comparison"
-import { domainMapper } from "./helpers/domain-mapper"
-import { corrector } from "./helpers/corrector"
-import { sortByCount } from "./helpers/sort"
-import type { EmailMisspelledConstructor, Result } from "./typings"
+import { containsOneAt } from "./helpers/contains-one-at.js"
+import { getDomain } from "./helpers/get-domain.js"
+import { stringLengthChecker } from "./string-length-checker.js"
+import { lettersComparison } from "./letters-comparison.js"
+import { domainMapper } from "./helpers/domain-mapper.js"
+import { corrector } from "./helpers/corrector.js"
+import { sortByCount } from "./helpers/sort.js"
+import type { EmailMisspelledConstructor, Result } from "./typings/index.js"
 
 const DEFAULT_LENGTH = 3
 const MAX_MISSPELLED = 2

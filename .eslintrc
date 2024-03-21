@@ -5,9 +5,10 @@
     "plugin:import/recommended",
     "eslint-config-prettier",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:require-extensions/recommended"
   ],
-  "plugins": ["import", "unicorn"],
+  "plugins": ["import", "unicorn", "require-extensions"],
   "settings": {
     "import/resolver": {
       "typescript": {
@@ -61,7 +62,6 @@
     "import/no-useless-path-segments": [
       "error",
       {
-        "noUselessIndex": true,
         "commonjs": true
       }
     ],

@@ -1,4 +1,4 @@
-import type { DomainList } from "../typings"
+import type { DomainList } from "../typings/index.js"
 
 export const aol: DomainList = [
   "aol.at",

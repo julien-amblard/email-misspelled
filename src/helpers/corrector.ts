@@ -1,4 +1,4 @@
-import type { Result } from "../typings"
+import type { Result } from "../typings/index.js"
 
 export interface Corrector {
   (value: Result): Result
