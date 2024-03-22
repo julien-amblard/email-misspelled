@@ -1,4 +1,4 @@
-import type { DomainList } from "../typings"
+import type { DomainList } from "../typings/index.js"
 
 export const top100: DomainList = [
   "gmail.com",
