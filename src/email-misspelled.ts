@@ -23,7 +23,7 @@ export const emailMisspelled: EmailMisspelledConstructor = ({
 } = DEFAULT_PARAMS) => {
   if (!domains || !Array.isArray(domains) || !domains.length)
     throw new Error(
-      "Please provide a domain list (for example: https://github.com/sl-julienamblard/email-misspelled/tree/master/src/domains)"
+      "Please provide a domain list (for example: https://github.com/julien-amblard/email-misspelled/tree/main/src/domains)"
     )
 
   return (email) => {
