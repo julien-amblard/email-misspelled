@@ -11,6 +11,7 @@ export const more: DomainList = [
   "games.com",
   "goowy.com",
   "gte.net",
+  "icloud.com",
   "love.com",
   "netscape.net",
   "rocketmail.com",
