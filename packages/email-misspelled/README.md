@@ -3,11 +3,11 @@
 <div align="center">  
 
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![CircleCI Status](https://img.shields.io/circleci/build/github/julien-amblard/email-misspelled/master?style=flat-square)](https://circleci.com/gh/julien-amblard/email-misspelled)
+[![CircleCI Status](https://img.shields.io/circleci/build/github/julien-amblard/email-misspelled/main?style=flat-square)](https://circleci.com/gh/julien-amblard/email-misspelled)
 [![codecov](https://img.shields.io/codecov/c/github/julien-amblard/email-misspelled?logo=codecov&style=flat-square)](https://codecov.io/gh/julien-amblard/email-misspelled)
-[![npm](https://img.shields.io/bundlephobia/minzip/email-misspelled?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
+![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/julien-amblard/email-misspelled/blob/v3/LICENSE)
+[![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/LICENSE)
 
 </div>  
 
@@ -20,7 +20,7 @@ The string comparison is based on [this algorithm](https://github.com/trekhleb/j
 
 ## [live codepen demo](https://codepen.io/Capse/full/LYGVRoP)
 
-![example](https://raw.githubusercontent.com/julien-amblard/email-misspelled/master/doc/example.gif)
+![example](https://raw.githubusercontent.com/julien-amblard/email-misspelled/main/packages/email-misspelled/doc/example.gif)
 
 ## Table of Contents
 
@@ -107,16 +107,16 @@ emailChecker("user@randmo.org")
 List of domains avaibles :  
 
 - [Top 100 domains list](#top100)
-- [Hotmail](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/hotmail.ts)
-- [Live](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/live.ts)
-- [Outlook](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/outlook.ts)
-- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/microsoft.ts)
-- [Yahoo](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/yahoo.ts)
-- [Aol](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/aol.ts)
-- [Others domains](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/more.ts)
-- [All (all previous domains in one list)](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/all.ts)
+- [Hotmail](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/hotmail.ts)
+- [Live](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/live.ts)
+- [Outlook](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/outlook.ts)
+- [Microsoft (a combination of hotmail, live and outlook emails)](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/microsoft.ts)
+- [Yahoo](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/yahoo.ts)
+- [Aol](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/aol.ts)
+- [Others domains](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/more.ts)
+- [All (all previous domains in one list)](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/all.ts)
 
-[More details here](https://github.com/julien-amblard/email-misspelled/blob/master/src/domains/)
+[More details here](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/src/domains/)
 
 **examples**
 

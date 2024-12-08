@@ -1,41 +1,23 @@
 {
   "name": "email-misspelled",
   "type": "module",
-  "description": "Check misspell email's domain and return a list of matching domain suggestions",
-  "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js",
-      "types": "./dist/esm/index.d.ts"
-    }
-  },
-  "types": "./dist/esm/index.d.ts",
-  "scripts": {
-    "test": "vitest",
-    "test:ci": "vitest run",
-    "test:coverage": "vitest run --coverage",
-    "test:coverage:report": "codecov --token=$CODECOV_TOKEN",
-    "clear": "rimraf ./dist",
-    "build": "npm run clear && npm run transpile:esm && npm run transpile:cjs",
-    "transpile:esm": "tsc --project ./tsconfig.esm.json",
-    "transpile:cjs": "tsc --project ./tsconfig.cjs.json",
-    "prepublishOnly": "npm run test:ci && npm run build",
-    "prepare": "husky",
-    "lint:staged": "lint-staged -- --allow-empty",
-    "lint:check": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --ignore-path .gitignore --fix",
-    "format:check": "prettier --config .prettierrc \"src/**/*.ts\" --check",
-    "format:fix": "prettier --config .prettierrc \"src/**/*.ts\" --write"
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "npm run lint:fix",
-      "npm run format:fix"
-    ]
-  },
-  "files": [
-    "/dist"
+  "workspaces": [
+    "./apps/react",
+    "./packages/email-misspelled"
   ],
+  "version": "0.0.0",
+  "description": "Check misspell email's domain and return a list of matching domain suggestions",
+  "scripts": {
+    "start": "npm run dev -w app",
+    "test": "npm run test -w email-misspelled",
+    "test:ci": "npm run test:ci -w email-misspelled",
+    "test:coverage": "npm run test:coverage -w email-misspelled",
+    "build": "npm run build -w email-misspelled",
+    "prepare": "husky",
+    "lint:staged": "npm run lint:staged -w email-misspelled",
+    "lint:check": "npm run lint:check -w email-misspelled",
+    "lint:fix": "npm run lint:fix -w email-misspelled"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/julien-amblard/email-misspelled.git"
@@ -45,45 +27,15 @@
     "email": "amblard.julien@gmail.com",
     "url": "https://github.com/julien-amblard"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/julien-amblard/email-misspelled/issues"
   },
   "homepage": "https://github.com/julien-amblard/email-misspelled#readme",
-  "keywords": [
-    "email",
-    "domain",
-    "misspelled",
-    "mailcheck",
-    "validator",
-    "checker",
-    "autocorrect",
-    "lightweight",
-    "corrector",
-    "form"
-  ],
+  "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "@vitest/coverage-v8": "^1.3.1",
-    "codecov": "^3.8.3",
-    "coverage": "^0.4.1",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-require-extensions": "^0.1.3",
-    "eslint-plugin-unicorn": "^51.0.1",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
-    "prettier": "^3.2.5",
-    "rimraf": "^5.0.5",
-    "typescript": "^5.3.3",
-    "vite": "^5.1.7",
-    "vitest": "^1.3.1"
+    "prettier": "^3.2.5"
   }
 }

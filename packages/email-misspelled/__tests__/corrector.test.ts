@@ -1,7 +1,7 @@
-import { corrector } from "../src/helpers/corrector"
+import { corrector } from "../src/helpers/corrector.js"
 
 describe("corrector : ", () => {
-  test("should return replaced string", () => {
+  it("should return replaced string", () => {
     const obj = corrector("test@test.com")({
       suggest: "zefzef.com",
       corrected: "",
@@ -11,7 +11,7 @@ describe("corrector : ", () => {
     expect(obj.corrected).toEqual("test@zefzef.com")
     expect(obj.suggest).toEqual("zefzef.com")
   })
-  test("should return default value", () => {
+  it("should return default value", () => {
     const obj = corrector("test@test.com")({
       suggest: "",
       corrected: "",
@@ -21,7 +21,7 @@ describe("corrector : ", () => {
     expect(obj.corrected).toEqual("")
     expect(obj.suggest).toEqual("")
   })
-  test("empty string should return default value", () => {
+  it("empty string should return default value", () => {
     const obj = corrector("")({
       suggest: "zddzdzd",
       corrected: "",
@@ -31,7 +31,7 @@ describe("corrector : ", () => {
     expect(obj.corrected).toEqual("")
     expect(obj.suggest).toEqual("zddzdzd")
   })
-  test("empty suggest should return default value", () => {
+  it("empty suggest should return default value", () => {
     const obj = corrector("")({
       suggest: "",
       corrected: "",

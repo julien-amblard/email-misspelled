@@ -14,14 +14,14 @@ aliases:
   - &canary_tag_filter
     filters:
       tags:
-        only: /^v[\d\.]+-(canary|alpha|beta)\.\d$/
+        only: /^[\d\.]+-(canary|alpha|beta)\.\d$/
       branches:
         ignore: /.*/
 
   - &prod_tag_filter
     filters:
       tags:
-        only: /^v[\d\.]+$/
+        only: /^[\d\.]+$/
       branches:
         ignore: /.*/
 
@@ -37,11 +37,11 @@ aliases:
       name: Save package information
       command: |
         echo 'export CURRENT_PACKAGE_VERSION=$(git describe --tags)' >> $BASH_ENV
-        echo 'export CURRENT_PACKAGE_NAME=$(jq ".name" ~/repos/package.json -r)' >> $BASH_ENV
+        echo 'export CURRENT_PACKAGE_NAME=$(jq ".name" ~/repos/packages/email-misspelled/package.json -r)' >> $BASH_ENV
   - &versioning_package
     run:
       name: Versioning package
-      command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
+      command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version -w email-misspelled
   - &print_information
     run:
       name: Print package information
@@ -66,18 +66,18 @@ jobs:
           command: npm ci --prefer-offline --ignore-scripts --no-audit --no-fund
       - run:
           name: Run tests
-          command: npm run test:ci
+          command: npm run test:ci -w email-misspelled
       - run:
           name: Run test coverage
-          command: npm run test:coverage
+          command: npm run test:coverage -w email-misspelled
       - store_artifacts:
           path: tests/coverage/lcov-report
       - run:
           name: Report coverage
-          command: npm run test:coverage:report
+          command: npm run test:coverage:report -w email-misspelled
       - run:
           name: Run build
-          command: npm run build
+          command: npm run build -w email-misspelled
       - save_cache:
           paths:
             - /node_modules
@@ -94,7 +94,7 @@ jobs:
       - *print_information
       - run:
           name: Publish package
-          command: npm publish --access public --tag alpha
+          command: npm publish --access public --tag alpha -w email-misspelled
       - *persist
 
   publish:
@@ -107,7 +107,7 @@ jobs:
       - *print_information
       - run:
           name: Publish package
-          command: npm publish --access public
+          command: npm publish --access public -w email-misspelled
       - *persist
 
 workflows:
