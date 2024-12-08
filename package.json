@@ -2,11 +2,13 @@
   "name": "email-misspelled",
   "type": "module",
   "workspaces": [
+    "./apps/react",
     "./packages/email-misspelled"
   ],
   "version": "0.0.0",
   "description": "Check misspell email's domain and return a list of matching domain suggestions",
   "scripts": {
+    "start": "npm run dev -w app",
     "test": "npm run test -w email-misspelled",
     "test:ci": "npm run test:ci -w email-misspelled",
     "test:coverage": "npm run test:coverage -w email-misspelled",
