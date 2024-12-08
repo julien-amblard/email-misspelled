@@ -6,8 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 /.vscode
-/lib
-/dist
+lib
+dist
 /domains
 /typings
 

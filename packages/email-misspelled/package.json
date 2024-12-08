@@ -11,7 +11,7 @@
   },
   "types": "./dist/esm/index.d.ts",
   "scripts": {
-    "test": "vitest",
+    "test": "vitest --reporter=verbose",
     "test:ci": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:coverage:report": "codecov --token=$CODECOV_TOKEN",

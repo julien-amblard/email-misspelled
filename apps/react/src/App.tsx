@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { TextField } from "@radix-ui/themes"
+import emailMisspelled, { Result, top100 } from "email-misspelled"
+import { ChangeEventHandler, useMemo, useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
+const useEmailMisspelled = () => {
+  const [results, set] = useState<Result[]>([])
+
+  const emailChecker = useMemo(
+    () => emailMisspelled({ domains: top100 }),
+    [emailMisspelled, top100]
+  )
+  const checker = (value: string): void => {
+    set(emailChecker(value))
+  }
+
+  return { emailChecker: checker, results }
+}
+export const App = () => {
+  const { emailChecker, results } = useEmailMisspelled()
+
+  const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+    emailChecker(event.target.value)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="flex flex-col justify-center items-center w-screen h-screen">
+      <TextField.Root
+        size="3"
+        placeholder="type an email"
+        onChange={handleChange}
+      />
+      <ul>
+        {results.map((result) => (
+          <li key={result.corrected}>{result.corrected}</li>
+        ))}
+      </ul>
+    </div>
   )
 }
-
-export default App

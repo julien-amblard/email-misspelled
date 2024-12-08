@@ -1,11 +1,11 @@
-import { containsOneAt } from '../src/helpers/contains-one-at.js'
+import { containsOneAt } from "../src/helpers/contains-one-at.js"
 
 describe("containsOneAt : ", () => {
-  test("should return true", () => {
+  it("should return true", () => {
     expect(containsOneAt("zefzef@zefzef.com")).toBe(true)
     expect(containsOneAt("@")).toBe(true)
   })
-  test("should return false", () => {
+  it("should return false", () => {
     expect(containsOneAt("zefzef@zefz@ef.com")).toBe(false)
     expect(containsOneAt("zefzefef.com")).toBe(false)
     expect(containsOneAt("")).toBe(false)

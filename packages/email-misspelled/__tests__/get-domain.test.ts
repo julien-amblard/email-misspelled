@@ -1,22 +1,22 @@
-import { getDomain } from '../src/helpers/get-domain.js'
+import { getDomain } from "../src/helpers/get-domain.js"
 
 describe("getDomain : ", () => {
-  test("foo@bar.com should return domain", () => {
+  it("foo@bar.com should return domain", () => {
     expect(getDomain("foo@bar.com")).toEqual("bar.com")
   })
-  test("@bar.com should return domain", () => {
+  it("@bar.com should return domain", () => {
     expect(getDomain("@bar.com")).toEqual("bar.com")
   })
-  test("foo@ should return nothing", () => {
+  it("foo@ should return nothing", () => {
     expect(getDomain("foo@")).toEqual("")
   })
-  test("foo should return nothing", () => {
+  it("foo should return nothing", () => {
     expect(getDomain("foo")).toEqual("")
   })
-  test("empty string should return nothing", () => {
+  it("empty string should return nothing", () => {
     expect(getDomain("")).toEqual("")
   })
-  test("null should return nothing", () => {
+  it("null should return nothing", () => {
     expect(getDomain()).toEqual("")
   })
 })

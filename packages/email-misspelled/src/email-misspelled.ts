@@ -5,6 +5,7 @@ import { lettersComparison } from "./letters-comparison.js"
 import { domainMapper } from "./helpers/domain-mapper.js"
 import { corrector } from "./helpers/corrector.js"
 import { sortByCount } from "./helpers/sort.js"
+import { sanitizeString } from "./helpers/sanitize.js"
 import type { EmailMisspelledConstructor, Result } from "./typings/index.js"
 
 const DEFAULT_LENGTH = 3
@@ -27,14 +28,15 @@ export const emailMisspelled: EmailMisspelledConstructor = ({
     )
 
   return (email) => {
-    if (!email || !containsOneAt(email)) return DEFAULT_RETURN
+    const sanitizedEmail = sanitizeString(email)
+    if (!sanitizedEmail || !containsOneAt(sanitizedEmail)) return DEFAULT_RETURN
 
-    const domain = getDomain(email)
+    const domain = getDomain(sanitizedEmail)
     if (domains.includes(domain)) return DEFAULT_RETURN
 
     const sizeFilter = stringLengthChecker(domain, lengthDiffMax)
     const letterFilter = lettersComparison(domain, maxMisspelled)
-    const correctorMapper = corrector(email)
+    const correctorMapper = corrector(sanitizedEmail)
 
     const remainsDomains = domains
       .filter(sizeFilter)
