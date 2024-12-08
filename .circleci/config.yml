@@ -14,14 +14,14 @@ aliases:
   - &canary_tag_filter
     filters:
       tags:
-        only: /^v[\d\.]+-(canary|alpha|beta)\.\d$/
+        only: /^[\d\.]+-(canary|alpha|beta)\.\d$/
       branches:
         ignore: /.*/
 
   - &prod_tag_filter
     filters:
       tags:
-        only: /^v[\d\.]+$/
+        only: /^[\d\.]+$/
       branches:
         ignore: /.*/
 
