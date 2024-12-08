@@ -3,9 +3,9 @@
 <div align="center">  
 
 [![npm](https://img.shields.io/npm/v/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
-[![CircleCI Status](https://img.shields.io/circleci/build/github/julien-amblard/email-misspelled/master?style=flat-square)](https://circleci.com/gh/julien-amblard/email-misspelled)
+[![CircleCI Status](https://img.shields.io/circleci/build/github/julien-amblard/email-misspelled/main?style=flat-square)](https://circleci.com/gh/julien-amblard/email-misspelled)
 [![codecov](https://img.shields.io/codecov/c/github/julien-amblard/email-misspelled?logo=codecov&style=flat-square)](https://codecov.io/gh/julien-amblard/email-misspelled)
-[![npm](https://img.shields.io/bundlephobia/minzip/email-misspelled?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
+![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/email-misspelled)
 [![npm](https://img.shields.io/npm/dt/email-misspelled.svg?style=flat-square)](https://www.npmjs.com/package/email-misspelled)
 [![npm](https://img.shields.io/npm/l/email-misspelled.svg?style=flat-square)](https://github.com/julien-amblard/email-misspelled/blob/main/packages/email-misspelled/LICENSE)
 
