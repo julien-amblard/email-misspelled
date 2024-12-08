@@ -31,7 +31,7 @@ aliases:
   - &auth_registry
     run:
       name: Authenticate with registry
-      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repos/packages/email-misspelled/.npmrc
+      command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repos/.npmrc
   - &save_package_information
     run:
       name: Save package information
