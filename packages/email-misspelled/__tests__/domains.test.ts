@@ -1,4 +1,4 @@
-import * as domains from "../src/domains"
+import * as domains from '../src/domains/index.js'
 
 describe("domains : ", () => {
   test("hotmail should be an array of strings", () => {

@@ -1,4 +1,4 @@
-import { sortByCount } from "../src/helpers/sort"
+import { sortByCount } from '../src/helpers/sort.js'
 
 describe("sort", () => {
   test("should return negative value", () => {

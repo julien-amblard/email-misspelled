@@ -1,4 +1,4 @@
-import { corrector } from "../src/helpers/corrector"
+import { corrector } from '../src/helpers/corrector.js'
 
 describe("corrector : ", () => {
   test("should return replaced string", () => {

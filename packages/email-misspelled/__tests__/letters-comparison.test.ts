@@ -1,4 +1,4 @@
-import { lettersComparison } from "../src/letters-comparison"
+import { lettersComparison } from '../src/letters-comparison.js'
 
 describe("lettersComparison config : ", () => {
   test("constructor return a function", () => {

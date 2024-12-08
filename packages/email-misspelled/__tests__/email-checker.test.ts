@@ -1,4 +1,4 @@
-import emailChecker, { top100 } from "../src"
+import emailChecker, { top100 } from '../src/index.js'
 
 describe("emailChecker default config : ", () => {
   const checker = emailChecker({ domains: top100 })

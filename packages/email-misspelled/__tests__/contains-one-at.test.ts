@@ -1,4 +1,4 @@
-import { containsOneAt } from "../src/helpers/contains-one-at"
+import { containsOneAt } from '../src/helpers/contains-one-at.js'
 
 describe("containsOneAt : ", () => {
   test("should return true", () => {

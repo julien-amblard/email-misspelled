@@ -1,4 +1,4 @@
-import { stringLengthChecker } from "../src/string-length-checker"
+import { stringLengthChecker } from '../src/string-length-checker.js'
 
 describe("stringLengthChecker with diff of 1 : ", () => {
   test("should return a function", () => {

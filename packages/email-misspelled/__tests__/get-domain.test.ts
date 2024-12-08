@@ -1,4 +1,4 @@
-import { getDomain } from "../src/helpers/get-domain"
+import { getDomain } from '../src/helpers/get-domain.js'
 
 describe("getDomain : ", () => {
   test("foo@bar.com should return domain", () => {
