@@ -41,7 +41,7 @@ aliases:
   - &versioning_package
     run:
       name: Versioning package
-      command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version
+      command: npm version $CURRENT_PACKAGE_VERSION --no-git-tag-version -w email-misspelled
   - &print_information
     run:
       name: Print package information
