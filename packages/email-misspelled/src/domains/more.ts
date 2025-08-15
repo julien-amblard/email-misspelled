@@ -25,5 +25,6 @@ export const more: DomainList = [
   "y7mail.com",
   "ybb.ne.jp",
   "ygm.com",
-  "ymail.com"
+  "ymail.com",
+  "mail.de"
 ]
