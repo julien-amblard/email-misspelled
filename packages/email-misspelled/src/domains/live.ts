@@ -31,5 +31,5 @@ export const live: DomainList = [
   "live.co.za",
   "live.se",
   "livemail.tw",
-  "live.co.uk"
+  "live.co.nz"
 ]

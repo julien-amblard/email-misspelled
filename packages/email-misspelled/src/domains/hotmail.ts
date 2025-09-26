@@ -17,6 +17,7 @@ export const hotmail: DomainList = [
   "hotmail.com.hk",
   "hotmail.hu",
   "hotmail.co.in",
+  "hotmail.co.nz",
   "hotmail.co.id",
   "hotmail.co.il",
   "hotmail.it",

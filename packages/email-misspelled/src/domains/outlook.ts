@@ -19,6 +19,7 @@ export const outlook: DomainList = [
   "outlook.co.id",
   "outlook.ie",
   "outlook.co.il",
+  "outlook.co.nz",
   "outlook.it",
   "outlook.jp",
   "outlook.kr",
